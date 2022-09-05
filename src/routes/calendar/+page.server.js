@@ -12,7 +12,7 @@ import { get } from 'svelte/store';
 export async function load(event) {
     let events = get(calendar);
 
-    if(calendar.length === 1) {
+    if(!calendar.length) {
         for(const calendarId of [4, 5, 7, 8, 15, 24]) {
             const request = await fetch(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`);
             const raw = await request.text();
