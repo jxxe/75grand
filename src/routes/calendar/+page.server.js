@@ -1,4 +1,5 @@
-import parseICS from 'ical';
+import ical from 'ical';
+
 // import { calendar } from '../../lib/stores.js';
 // import { get } from 'svelte/store';
 
@@ -18,7 +19,7 @@ export async function load(event) {
             const request = await fetch(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`);
             const raw = await request.text();
     
-            let parsedData = Object.values(parseICS(raw)).map(event => {
+            let parsedData = Object.values(ical.parseICS(raw)).map(event => {
                 event.calendarId = calendarId;
                 return event;
             });
