@@ -8,4 +8,5 @@
 
 <main class="p-8">
     <h1 class="text-5xl">{$page.status} Error</h1>
+    <p>{$page.error.message}</p>
 </main>
