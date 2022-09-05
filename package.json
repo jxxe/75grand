@@ -1,0 +1,30 @@
+{
+	"name": "75grand",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"@tailwindcss/forms": "^0.5.3",
+		"@tailwindcss/typography": "^0.5.7",
+		"autoprefixer": "^10.4.8",
+		"mdsvex": "^0.10.6",
+		"postcss": "^8.4.16",
+		"svelte": "^3.46.0",
+		"svelte-local-storage-store": "^0.3.1",
+		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.1.8",
+		"vite": "^3.1.0-beta.1"
+	},
+	"type": "module",
+	"dependencies": {
+		"@fontsource/fira-mono": "^4.5.0",
+		"cookie": "^0.4.1",
+		"dateformat": "^5.0.3",
+		"ical": "^0.8.0"
+	}
+}
