@@ -24,6 +24,7 @@
 </script>
 
 <main class="p-8">
+    {Math.round((Date.now() - data.currentTime) / 100) / 10}s ago<br><br>
     <div class="grid gap-4 grid-cols-[min-content,1fr]">
     {#each data.events as event, index}
         {#if new Date(event.end).getTime() > Date.now()}

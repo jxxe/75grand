@@ -30,5 +30,8 @@ export async function load({ setHeaders }) {
 
     setHeaders({ 'cache-control': 'stale-while-revalidate=3600' });
 
-    return { events: events };
+    return {
+        events: events,
+        currentTime: Date.now()
+    };
 }
