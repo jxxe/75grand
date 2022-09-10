@@ -8,7 +8,7 @@
 </script>
 
 <main class="p-8 space-y-8">
-	<div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-4">
+	<div class="grid lg:grid-cols-2 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
 		{#each data.featured as contact}
 			<Contact
 				name={contact.name}
@@ -22,7 +22,7 @@
 
 	<hr>
 
-	<div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-4">
+	<div class="grid lg:grid-cols-2 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
 		{#each data.contacts as contact}
 			<Contact
 				name={contact.name}

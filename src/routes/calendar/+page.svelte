@@ -42,8 +42,8 @@
                     {/if}
                 </div>
 
-                <a href={event.url} target="_blank" class="flex gap-4 w-fit p-3 rounded-lg bg-white hover:bg-slate-50 transition-colors border border-slate-200">
-                    <p class="whitespace-nowrap">{formatEventDate(event.start, event.end)}</p>
+                <a href={event.url} target="_blank" class="flex gap-2 w-fit p-3 rounded-lg bg-white hover:bg-slate-50 transition-colors border border-slate-200">
+                    <p>{formatEventDate(event.start, event.end)}</p>
                     <p class="font-semibold">{event.summary}</p>
                 </a>
                 

@@ -11,8 +11,8 @@
 
     let audio;
     let audioData = [];
-    let status = 1; // 0 = ready, 1 = loading, 2 = playing
-    let clickRequired = true;
+    let status = 'loading'; // loading, ready, playing
+    let isMuted = false;
 
     let handleClick;
 
@@ -20,19 +20,41 @@
     if(browser && true) {
 
         // Stop audio when switching pages
-        beforeNavigate(() => audio && audio.pause());
+        beforeNavigate(() => {
+            if(!audio) return;
+            audio.pause();
+            audio.src = '';
+        });
 
         audio = new Audio('https://stream.wmcn.fm:8443/wmcn');
         audio.crossOrigin = 'anonymous';
-        audio.addEventListener('loadeddata', () => status = 0);
+        audio.addEventListener('loadeddata', () => {
+            // Audio is loaded and ready to play
+            status = 'ready';
 
-        // Check if user interaction is required
-        const testAudioElement = document.createElement('audio');
-        testAudioElement.addEventListener('play', () => clickRequired = false);
-        testAudioElement.play().catch(error => {});
+            // Check if user interaction is required, start playing if it isn't
+            const testAudioElement = document.createElement('audio');
+            testAudioElement.addEventListener('play', playAudio);
+            testAudioElement.play().catch(error => {});
+        });
 
-        function startViz() {
-            const stream = audio.captureStream(); // MediaStream
+        function toggleMute() {
+            if(!audio) return;
+            isMuted = !isMuted;
+            audio.volume = isMuted ? 0 : 1;
+        }
+
+        function playAudio() {
+            audio.play();
+            
+            if(status !== 'ready') {
+                status = 'playing';
+                return;
+            }
+
+            status = 'loading';
+
+            const stream = audio.mozCaptureStream ? audio.mozCaptureStream() : audio.captureStream(); // MediaStream
             const context = new AudioContext(); // AudioContext
             const source = context.createMediaStreamSource(stream); // MediaStreamAudioSourceNode
 
@@ -49,15 +71,18 @@
                 const dataMap = {0: 15, 1: 10, 2: 8, 3: 9, 4: 6, 5: 5, 6: 2, 7: 1, 8: 0, 9: 4, 10: 3, 11: 7, 12: 11, 13: 12, 14: 13, 15: 14};
                 const values = Object.values(frequencyData);
 
+                // Continue loading until audio actually starts coming through
+                if(values.reduce((a, b) => a + b) > 0) status = 'playing';
+                else if(!isMuted) status = 'loading';
+
                 audioData = [];
                 for(let i = 0; i < 16; i++) {
                     const value = values[dataMap[i]] / 255;
                     audioData.push(value);
                 }
 
-                const maxData = Math.max(...audioData);
-                const timesToOne = 1 / maxData;
-                audioData = audioData.map(value => value * timesToOne);
+                // Fill with fake data when muted
+                if(isMuted) audioData = [0, 0, 0.02, 0, 0.43, 0.55, 0.85, 0.97, 1, 0.55, 0.61, 0.24, 0, 0, 0, 0];
 
                 requestAnimationFrame(renderFrame);
             }
@@ -66,62 +91,54 @@
         }
 
         handleClick = () => {
-            if(status === 0) {
-                audio.play();
-                status = 2;
-                startViz();
-            } else if(status === 2 && audio) {
-                audio.pause();
-                status = 0;
-            }
+            if(status === 'ready') playAudio();
+            else toggleMute();
         }
 
     }
 
 </script>
 
-<main class="p-8 flex flex-col gap-8 h-full items-center justify-center">
-    <h2 class="flex gap-1 text-4xl font-['Futura','Helvetica_Neue',sans-serif]">
-        <span>W</span>
-        <span class="text-orange-300">M</span>
-        <span class="text-blue-400">C</span>
-        <span class="text-rose-900">N</span>
-    </h2>
+<main class="p-8 flex flex-col gap-8 h-full items-center justify-center bg-[url('/images/dog.svg')] bg-no-repeat bg-[length:125%] bg-center">
 
-    <div class="flex gap-2 items-center">
-        {#if status === 0} 
-            {#each Array(16) as _, i}
-                <div class="w-2 h-24 bg-current opacity-20"></div>
-            {/each}
-        {/if}
-
-        {#if status === 1} 
-            {#each Array(16) as _, i}
-                <div class="w-2 h-24 bg-current animate-ping" style="transform:scale(1)!important;animation-delay:{i/32}s"></div>
-            {/each}
-        {/if}
-
-        {#if status === 2}
-            {#each audioData as value}
-                <div class="w-2 h-24 bg-current" style="transform:scaleY({value});opacity:{value}"></div>
-            {/each}
-        {/if}
+    <div class="relative">
+        <a class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-10" target="_blank" href="https://www.wmcn.fm/?page_id=353">
+            <svg class="h-16" xmlns="http://www.w3.org/2000/svg" viewBox="682.737 281.957 119.787 61.913">
+                <path fill="currentColor" d="M770.317 283.997c1.515-1.102 3.267-2.04 5.191-2.024 1.983-.141 4.135.634 5.211 2.382 1.14 1.733.848 3.92.56 5.858-.672 3.74-1.393 7.474-2.065 11.215-.164.57-.16 1.361-.807 1.611-1.275.176-2.585.205-3.863.067-.778-.224-.502-1.14-.464-1.733.717-4.153 1.601-8.278 2.264-12.441.061-.82.359-2.213-.804-2.357-2.76-.426-5.236 1.758-6.014 4.285-1.29 4.006-1.598 8.246-2.581 12.329-1.499.24-3.039.4-4.544.163-.327-.361-.477-.823-.324-1.3.996-5.546 2.053-11.083 3.059-16.627.169-.913.265-1.867.707-2.7 1.422-.291 2.895-.163 4.337-.064.044.442.089.887.137 1.336Zm-23.298 2.664c2.527-3.759 7.888-5.354 12.013-3.43 2.578 1.217 4.125 4.253 3.561 7.055-1.444.196-2.908.462-4.371.337-.884-.9-.426-2.607-1.698-3.232-1.745-.903-4.076-.153-5.104 1.496-1.211 1.902-1.73 4.198-1.778 6.434-.019 1.29.023 2.767 1.041 3.714.647.737 1.742.807 2.636.558 1.252-.41 2.235-1.445 2.757-2.636.359-.708.567-1.521 1.14-2.101 1.489-.118 2.972.148 4.439.372.192 1.828-.843 3.462-1.781 4.938-2.274 3.414-7.017 4.916-10.818 3.33-2.414-1.002-4.061-3.394-4.426-5.946-.48-3.751.257-7.731 2.389-10.889Zm-24.748-2.024c1.864-1.335 4.346-2.03 6.568-1.229 1.179.349 2.04 1.268 2.799 2.184 1.556-1.49 3.539-2.735 5.764-2.716 1.781-.125 3.776.304 4.913 1.793 1.271 1.592 1.14 3.782.813 5.672-.704 4.022-1.489 8.028-2.203 12.047-.163.586-.179 1.522-.98 1.566-1.441.116-3.071.442-4.358-.403.8-4.624 1.687-9.233 2.523-13.851.077-.589.183-1.207.013-1.787-.477-.595-1.323-.538-1.989-.403-1.902.429-3.49 1.937-4.048 3.801-.887 2.773-1.21 5.681-1.806 8.522-.31 1.367-.352 2.815-.89 4.121-.657.407-1.486.33-2.226.398-.778-.026-1.636.15-2.344-.257-.509-.47-.208-1.181-.154-1.767.737-3.712 1.368-7.446 2.095-11.161.153-.964.397-1.95.246-2.927-.394-.753-1.374-.573-2.049-.423-2.002.606-3.517 2.348-4.099 4.324-1.173 4.022-1.502 8.233-2.562 12.284-1.586.125-3.184.173-4.772.023-.077-1.864.439-3.667.746-5.486.98-5.018 1.774-10.075 2.854-15.071 1.421-.192 2.872-.355 4.304-.166.313.272.566.602.842.912Zm-11.231-.659c1.492-.25 3.026-.141 4.531-.039.135 1.521-.746 2.821-1.332 4.151-2.194 4.771-4.4 9.536-6.581 14.318-.375.775-.647 1.636-1.258 2.27-1.272.244-2.588.192-3.875.138-.836.086-.843-.932-.936-1.502-.304-3.324-.544-6.655-.903-9.972-1.454 3.394-2.914 6.786-4.339 10.193-.24.5-.426 1.066-.884 1.415-1.38.177-2.799.221-4.185.08-.609-.345-.545-1.124-.686-1.716-.708-5.87-1.502-11.731-2.238-17.598-.144-.547.141-1.197.743-1.277 1.165-.186 2.366-.189 3.542-.074.698.24.659 1.105.781 1.701.371 3.173.861 6.337 1.066 9.527.087-.045.257-.131.34-.176 1.534-3.744 3.145-7.456 4.778-11.158 1.643-.221 3.318-.333 4.96-.025.481 3.814.756 7.654 1.093 11.484 1.444-3.395 2.997-6.741 4.454-10.13.26-.56.5-1.152.929-1.61Zm58.041 28.565c2.293-1.658 5.323-1.024 7.913-.634.282 1.445-.073 2.886-.394 4.288-.172.09-.518.266-.691.356-1.108-.173-2.248-.423-3.366-.205-.737.695-.609 1.857-.868 2.773.993.003 2.008-.147 2.998.051.47.334.381.92.329 1.419-.115.926-.333 1.842-.592 2.738-1.163.096-2.322.18-3.484.263-.554 3.603-1.198 7.189-1.762 10.792-.342 1.883-.515 3.805-1.105 5.633-1.425.17-2.856.234-4.288.288-.88-.96-.281-2.248-.157-3.362.721-4.384 1.467-8.765 2.159-13.156-.833-.016-1.675.01-2.492-.153-.32-1.163-.009-2.393.305-3.523.445-1.111 1.953-.551 2.875-.743.558-2.341.478-5.259 2.62-6.825Zm-27.474 1.044c2.761-.224 5.537-.147 8.298-.374 1.066-.052 2.142-.186 3.209-.039.707.253.502 1.054.477 1.637-.119.858-.189 1.748-.503 2.565-.525.855-1.303 1.515-1.953 2.267-2.245 2.562-3.978 5.531-5.413 8.608-1.674 3.578-3.02 7.324-3.75 11.212-.153.583-.205 1.256-.675 1.688-1.547.285-3.145.205-4.708.112-.061-1.233.135-2.453.432-3.641 1.704-7.02 4.833-13.732 9.355-19.385-3.411.132-6.818.317-10.229.401-.384.016-.759-.026-1.124-.125-.458-.352-.307-.942-.269-1.429.125-1.044.355-2.068.589-3.087 2.066-.378 4.179-.23 6.264-.41Zm-25.93.763c1.073-.106 2.28-.519 3.27.096.24.871-.023 1.771-.148 2.638-1.14 6.623-2.171 13.265-3.292 19.891-.294 1.764-.496 3.551-.954 5.287-1.444.218-2.921.4-4.378.215-.784-.385-.413-1.345-.378-2.021.935-5.521 1.832-11.048 2.748-16.573-1.864.993-3.785 1.976-5.867 2.421-.544.167-1.188-.262-1.086-.861.055-1.217.35-2.408.603-3.593 3.573-1.848 7.33-3.968 9.482-7.5Zm-26.126 1.671c2.7-1.191 6.107-1.111 8.519.708 2.078 1.476 3.231 3.942 3.603 6.411.563 4.967-.25 10.123-2.553 14.578-1.329 2.523-3.426 4.82-6.209 5.694-2.636.874-5.87.56-7.875-1.505-1.499-1.432-2.014-3.526-2.299-5.505 1.367-.948 3.122-.897 4.717-.929.378 1.118.528 2.415 1.412 3.276.894.833 2.309.596 3.238-.054 1.582-1.128 2.462-2.927 3.189-4.67-1.879.849-4.009 1.281-6.039.718-1.992-.634-3.802-2.011-4.708-3.923-2.476-5.214-.237-12.237 5.005-14.799m2.582 3.872c-2.534 1.134-3.75 4.128-3.53 6.78.077 1.482.91 2.978 2.3 3.596 1.358.551 2.93.006 3.897-1.031 1.912-2.05 2.786-5.384 1.227-7.885-.74-1.338-2.457-1.976-3.894-1.46Zm103.493-2.155c2.239-.42 5.05.105 6.213 2.283 1.22 2.168.503 4.737.173 7.042-.73 3.859-1.115 7.789-2.046 11.606-1.586.119-3.181.221-4.766.054-.089-1.806.394-3.561.644-5.332.452-2.988 1.009-5.956 1.457-8.941.128-.714-.013-1.431-.125-2.136-1.303-.141-2.671.013-3.711.878-1.688 1.101-2.313 3.128-2.668 5.005-.564 3.065-1.06 6.142-1.544 9.223-.105.541-.211 1.095-.451 1.601-1.393.385-2.889.375-4.314.247-.704-.282-.455-1.079-.413-1.656.724-4.39 1.496-8.771 2.149-13.171.189-.715-.205-1.323-.618-1.858-2.469.16-4.653 1.909-5.368 4.269-1.124 3.824-1.434 7.82-2.196 11.721-.077.419-.234.97-.724 1.05-1.137.164-2.29.125-3.427.234-.176-.058-.528-.176-.704-.237-.084-.173-.247-.519-.33-.692 1.117-6.581 2.177-13.171 3.269-19.756 1.355-.371 2.777-.432 4.173-.336.525-.003.698.599 1.022.91 1.566-1.131 3.471-1.858 5.428-1.608 1.636.061 2.981 1.131 3.987 2.338 1.377-1.287 2.988-2.431 4.89-2.738Zm-71.725 18.987c1.371-.426 2.824-.458 4.246-.477.449.032 1.192.134 1.14.733.032 1.387-.329 2.758-.624 4.106-.032.57-.666.724-1.137.749-1.294.074-2.607.215-3.894.029-.09-.118-.272-.349-.362-.464-.048-1.579.448-3.116.631-4.676Z"/>
+            </svg>
+        </a>
+    
+        <div class="flex h-24 gap-2 items-center opacity-20">
+            {#if status === 'loading'}
+                {#each Array(16) as _, i}
+                    <div class="w-2 h-full bg-current animate-ping" style="transform:scale(1)!important;animation-delay:{i/32}s"></div>
+                {/each}
+            {/if}
+    
+            {#if status === 'playing'}
+                {#each audioData as value}
+                    <div class="w-2 h-full bg-current" style="transform:scaleY({value});opacity:{value}"></div>
+                {/each}
+            {/if}
+        </div>
     </div>
 
     {#if data.title && data.time}
         <div class="text-center">
+            <p class="uppercase text-xs text-sky-700">Current Show</p>
             <h3 class="font-bold text-lg">{data.title}</h3>
-            <p class="text-slate-400">{data.time}</p>
+            <p class="text-slate-500">{data.time}</p>
         </div>
     {/if}
 
-    <button disabled={status === 1} class:opacity-75={status === 1} class:cursor-wait={status === 1} class="bg-sky-700 text-white flex gap-3 items-center py-2 px-4 font-semibold rounded-lg" on:click={handleClick()}>
-        {#if status < 2}
+    <button class:invisible={status === 'loading'} class="bg-sky-700 text-white flex gap-3 items-center py-2 px-4 font-semibold rounded-lg" on:click={handleClick()}>
+        {#if status === 'playing'}
+            <i class="fas fa-{isMuted ? 'volume-xmark' : 'volume-high'}"></i>
+            <span>{isMuted ? 'Unmute' : 'Mute'}</span>
+        {:else}
             <i class="fas fa-radio"></i>
             <span>Start Streaming</span>
-        {:else if status === 2}
-            <i class="fas fa-pause"></i>
-            <span>Pause</span>
         {/if}
     </button>
+
 </main>
