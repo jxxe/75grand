@@ -28,7 +28,7 @@ export async function load({ setHeaders }) {
 
     events.sort((a, b) => new Date(a.start) - new Date(b.start));
 
-    setHeaders({ 'cache-control': 'stale-while-revalidate=3600' });
+    setHeaders({ 'Cache-Control': 'stale-while-revalidate=3600' });
 
     return {
         events: events,
