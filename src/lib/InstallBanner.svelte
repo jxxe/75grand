@@ -13,7 +13,7 @@
     <img class="w-10 h-10 rounded-[25%] border" src="/files/pwa/icon.png" alt="">
 
     <div class="w-full leading-none mt-[-4px]">
-        <h3 class="font-bold text-lg">75grand</h3>
+        <h3 class="font-bold text-lg">Install 75grand</h3>
         <p class="text-slate-400">No download required</p>
     </div>
 
@@ -22,7 +22,7 @@
 
 {#if isApple}
     <div class:hidden={!instructionsOpen} class="p-8 space-y-8 fixed top-0 w-screen h-screen z-50 bg-white">
-        <h1 class="text-xl font-bold">How to add <span class="text-sky-700 font-bold font-serif text-2xl">75grand</span> to your iPhone or iPad homescreen</h1>
+        <h1 class="text-xl font-bold">How to add <span class="text-sky-700 font-bold font-serif text-2xl">75grand</span> to your iPhone or iPad home screen</h1>
 
         <div>
             <h2 class="font-bold text-lg">Step 1</h2>
@@ -48,18 +48,17 @@
             <p>
                 <span>Tap</span>
                 <span class="font-bold text-blue-500">Add</span>
-                <span>once the icon has loaded</span>
             </p>
         </div>
 
         <div>
             <h2 class="font-bold text-lg">Step 4</h2>
-            <p>There is no step 4 🥳</p>
+            <p>There is no step 4! 🥳</p>
         </div>
     </div>
 {:else}
     <div class:hidden={!instructionsOpen} class="p-8 space-y-8 fixed top-0 w-screen h-screen z-50 bg-white">
-        <h1 class="text-xl font-bold">How to add <span class="text-sky-700 font-bold font-serif text-2xl">75grand</span> to your Android phone's homescreen</h1>
+        <h1 class="text-xl font-bold">How to add <span class="text-sky-700 font-bold font-serif text-2xl">75grand</span> to your Android phone's home screen</h1>
 
         <div>
             <h2 class="font-bold text-lg">Step 1</h2>
@@ -90,7 +89,7 @@
 
         <div>
             <h2 class="font-bold text-lg">Step 4</h2>
-            <p>There is no step 4 🥳</p>
+            <p>There is no step 4! 🥳</p>
         </div>
     </div>
 {/if}

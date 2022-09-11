@@ -62,7 +62,7 @@
 
         <div>
             <h3 class="text font-bold">Get the app</h3>
-            <p class="text-slate-400 text-sm">Just open on your phone to install, no download required</p>
+            <p class="text-slate-400 text-sm">Open 75grand on your phone</p>
         </div>
     </div>
 </div>

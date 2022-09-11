@@ -119,12 +119,12 @@
         [false, 'opens at 10am', 5*day+22*hour]
     ];
 
-    const simpliciteaHours = (date) => {
+    const simpliciteaHours = date => {
         if(date.hour >= 10 && date.hour < 21) return [true, 'closes at 9pm'];
         return [false, 'opens at 10am'];
     };
 
-    const senchaHours = (date) => {
+    const senchaHours = date => {
         if(date.hour >= 11 && date.hour < 21) return [true, 'closes at 9pm'];
         return [false, 'opens at 11am'];
     };

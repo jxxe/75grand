@@ -8,7 +8,7 @@
 <svelte:head>
 	<link rel="manifest" href="/files/pwa/app.webmanifest">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
 	<meta name="apple-mobile-web-app-title" content="75grand">
 	<link rel="apple-touch-icon" href="/files/pwa/icon.png">
 	<link rel="apple-touch-startup-image" href="/files/pwa/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
