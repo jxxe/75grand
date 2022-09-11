@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
-	import LoadingBar from '../lib/LoadingBar.svelte';
-	import Sidebar from '../lib/Sidebar.svelte';
+	import LoadingBar from '$lib/LoadingBar.svelte';
+	import Sidebar from '$lib/Sidebar.svelte';
 </script>
 
 <LoadingBar/>

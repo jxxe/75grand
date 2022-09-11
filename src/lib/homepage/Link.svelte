@@ -1,5 +1,5 @@
 <script>
-    import { favorites } from '../lib/stores.js';
+    import { favorites } from '../stores.js';
     export let link;
 
     const toggleFavorite = linkId => {

@@ -3,40 +3,19 @@
 </svelte:head>
 
 <script>
-	import LinkResource from './LinkResource.svelte';
-	import { favorites } from '../lib/stores.js';
+	import Favorites from '$lib/homepage/Favorites.svelte';
+	import Links from '$lib/homepage/Links.svelte';
+	import ServiceHours from '$lib/homepage/ServiceHours.svelte';
+
 	export let data;
-	const getLinkById = id => Object.values(data).flat().find(link => link.id === id);
 </script>
 
 <main class="space-y-8 py-8">
-	{#if $favorites.length > 0}
-		<section class="px-8">
-			<h2 class="text-lg font-bold mb-4">Favorites</h2>
+	<Favorites links={data.links}/>
 
-			<div class="grid grid-cols-display gap-4">
-				{#each $favorites as linkId}
-					{#if getLinkById(linkId)}
-						<LinkResource link={getLinkById(linkId)}/>
-					{/if}
-				{/each}
-			</div>
-		</section>
-	{/if}
-
-	<!-- <section class="px-8">
-		calendar here
-	</section> -->
+	<section class="px-8 grid gap-4 grid-cols-display">
+		<ServiceHours/>
+	</section>
 	
-	{#each Object.entries(data) as [category, links]}
-		<section class="px-8">
-			<h2 class="text-lg font-bold mb-4">{category}</h2>
-	
-			<div class="grid grid-cols-display gap-4">
-				{#each links as link}
-					<LinkResource link={link}/>
-				{/each}
-			</div>
-		</section>
-	{/each}
+	<Links links={data.links}/>
 </main>

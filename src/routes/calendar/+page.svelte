@@ -3,31 +3,24 @@
 </svelte:head>
 
 <script>
-    import dateFormat from 'dateformat';
+    import { DateTime } from 'luxon';
     export let data;
 
     function formatEventDate(startTimeString, endTimeString) {
-        let startTimeMask = dateFormat(startTimeString, 'MM') === '00' ? 'h' : 'h:MM';
-        if(dateFormat(startTimeString, 'tt') !== dateFormat(endTimeString, 'tt')) startTimeMask += 'tt';
+        const startDate = DateTime.fromJSDate(startTimeString, { zone: 'America/Chicago' });
+        const endDate = DateTime.fromJSDate(endTimeString, { zone: 'America/Chicago' });
 
-        let startDateMask = dateFormat(null, 'yyyy-mm-dd') === dateFormat(startTimeString, 'yyyy-mm-dd') ? '"Today"' : 'mmm d';
-        if(dateFormat(startTimeString, 'yyyy') !== dateFormat(null, 'yyyy')) startDateMask += ', yyyy';
+        let startFormat = `MMM d, h${startDate.minute !== 0 ? ':mm' : ''}${startDate.toFormat('a') !== endDate.toFormat('a') ? 'a' : ''}`
+        let endFormat = `h${endDate.minute !== 0 ? ':mm' : ''}a`;
 
-        const startDate = dateFormat(startTimeString, startDateMask);
-        const startTime = dateFormat(startTimeString, startTimeMask);
-
-        const endTimeMask = dateFormat(endTimeString, 'MM') === '00' ? 'htt' : 'h:MMtt';
-        const endTime = dateFormat(endTimeString, endTimeMask);
-
-        return `${startDate}, ${startTime}–${endTime}`;
+        return `${startDate.toFormat(startFormat)}–${endDate.toFormat(endFormat)}`.replace('AM', 'am').replace('PM', 'pm');
     }
 </script>
 
 <main class="p-8">
-    {Math.round((Date.now() - data.currentTime) / 100) / 10}s ago<br><br>
     <div class="grid gap-4 grid-cols-[min-content,1fr]">
-    {#each data.events as event, index}
-        {#if new Date(event.end).getTime() > Date.now()}
+        {#each data.events as event, index}
+            {#if new Date(event.end).getTime() > Date.now()}
  
                 <div>
                     <i class="fa-{{
@@ -43,8 +36,8 @@
                     {/if}
                 </div>
 
-                <a href={event.url} target="_blank" class="flex gap-2 w-fit p-3 rounded-lg bg-white hover:bg-slate-50 transition-colors border border-slate-200">
-                    <p>{formatEventDate(event.start, event.end)}</p>
+                <a href={event.url} target="_blank" class="lg:flex lg:flex-row flex-col gap-2 w-fit p-3 rounded-lg bg-white hover:bg-slate-50 transition-colors border border-slate-200">
+                    <p class="whitespace-nowrap">{formatEventDate(event.start, event.end)}</p>
                     <p class="font-semibold">{event.summary}</p>
                 </a>
                 

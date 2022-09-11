@@ -1,6 +1,5 @@
 <script>
     import { beforeNavigate, afterNavigate } from '$app/navigation';
-    import { page, navigating } from '$app/stores';
 
     let progress = 0;
     let opacity = 1;
@@ -13,9 +12,10 @@
         interval = setInterval(() => progress += (100 - progress) / 5, 500);
     });
 
-    afterNavigate(() => {
+    afterNavigate(({ from, to }) => {
+        if(from === null || to === null) return;
         clearInterval(interval);
-
+        
         progress = 100;
 
         setTimeout(() => opacity = 0, 600);
@@ -23,4 +23,4 @@
     });
 </script>
 
-<div style="width:{progress}%;opacity:{opacity}" class="transition-[opacity,width] duration-300 bg-sky-700 h-1 fixed z-50"></div>
+<div style="width:{progress}%;opacity:{opacity}" class="transition-[opacity,width] duration-300 bg-sky-700 h-[2.5px] fixed z-50"></div>

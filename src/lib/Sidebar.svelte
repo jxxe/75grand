@@ -10,7 +10,7 @@
         '/': 'Links',
         '/calendar': 'Calendar',
         '/directory': 'Directory',
-        '/map': 'Campus Map',
+        '/special/map': 'Campus Map',
         '/clubs': 'Student Groups',
         '/social-media': 'Social Media',
         '/guides': 'Guides'

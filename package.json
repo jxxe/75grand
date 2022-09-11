@@ -24,6 +24,7 @@
 	"dependencies": {
 		"dateformat": "^5.0.3",
 		"ical": "^0.8.0",
+		"luxon": "^3.0.3",
 		"node-html-parser": "^6.0.0"
 	}
 }

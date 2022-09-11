@@ -6,6 +6,9 @@ module.exports = {
             borderWidth: { DEFAULT: '1.5px' },
             gridTemplateColumns: {
                 display: 'repeat(auto-fill, minmax(250px, 1fr))'
+            },
+            fontFamily: {
+                serif: 'Georgia, ui-serif, Cambria, "Times New Roman", Times, serif'
             }
         }
     },
