@@ -17,7 +17,7 @@
     let handleClick;
 
     // There's lots of shenanigans with undefined variables since this can only run on the client
-    if(browser && true) {
+    if(browser) {
 
         // Stop audio when switching pages
         beforeNavigate(() => {
@@ -54,40 +54,44 @@
 
             status = 'loading';
 
-            const stream = audio.mozCaptureStream ? audio.mozCaptureStream() : audio.captureStream(); // MediaStream
-            const context = new AudioContext(); // AudioContext
-            const source = context.createMediaStreamSource(stream); // MediaStreamAudioSourceNode
-
-            const analyzer = context.createAnalyser(); // AnalyserNode
-            source.connect(analyzer);
-            analyzer.smoothingTimeConstant = 0.5;
-            analyzer.fftSize = 32;
-
-            const bufferLength = analyzer.frequencyBinCount;
-            const frequencyData = new Uint8Array(bufferLength);
-
-            function renderFrame() {
-                analyzer.getByteFrequencyData(frequencyData);
-                const dataMap = {0: 15, 1: 10, 2: 8, 3: 9, 4: 6, 5: 5, 6: 2, 7: 1, 8: 0, 9: 4, 10: 3, 11: 7, 12: 11, 13: 12, 14: 13, 15: 14};
-                const values = Object.values(frequencyData);
-
-                // Continue loading until audio actually starts coming through
-                if(values.reduce((a, b) => a + b) > 0) status = 'playing';
-                else if(!isMuted) status = 'loading';
-
-                audioData = [];
-                for(let i = 0; i < 16; i++) {
-                    const value = values[dataMap[i]] / 255;
-                    audioData.push(value);
+            if('mozCaptureStream' in audio || 'captureStream' in audio) {
+                const stream = audio.mozCaptureStream ? audio.mozCaptureStream() : audio.captureStream(); // MediaStream
+                const context = new AudioContext(); // AudioContext
+                const source = context.createMediaStreamSource(stream); // MediaStreamAudioSourceNode
+    
+                const analyzer = context.createAnalyser(); // AnalyserNode
+                source.connect(analyzer);
+                analyzer.smoothingTimeConstant = 0.5;
+                analyzer.fftSize = 32;
+    
+                const bufferLength = analyzer.frequencyBinCount;
+                const frequencyData = new Uint8Array(bufferLength);
+    
+                function renderFrame() {
+                    analyzer.getByteFrequencyData(frequencyData);
+                    const dataMap = {0: 15, 1: 10, 2: 8, 3: 9, 4: 6, 5: 5, 6: 2, 7: 1, 8: 0, 9: 4, 10: 3, 11: 7, 12: 11, 13: 12, 14: 13, 15: 14};
+                    const values = Object.values(frequencyData);
+    
+                    // Continue loading until audio actually starts coming through
+                    if(values.reduce((a, b) => a + b) > 0) status = 'playing';
+                    else if(!isMuted) status = 'loading';
+    
+                    audioData = [];
+                    for(let i = 0; i < 16; i++) {
+                        const value = values[dataMap[i]] / 255;
+                        audioData.push(value);
+                    }
+    
+                    // Fill with fake data when muted
+                    if(isMuted) audioData = [0, 0, 0.02, 0, 0.43, 0.55, 0.85, 0.97, 1, 0.55, 0.61, 0.24, 0, 0, 0, 0];
+    
+                    requestAnimationFrame(renderFrame);
                 }
-
-                // Fill with fake data when muted
-                if(isMuted) audioData = [0, 0, 0.02, 0, 0.43, 0.55, 0.85, 0.97, 1, 0.55, 0.61, 0.24, 0, 0, 0, 0];
-
+    
                 requestAnimationFrame(renderFrame);
+            } else {
+                status = 'playing';
             }
-
-            requestAnimationFrame(renderFrame);
         }
 
         handleClick = () => {
@@ -99,7 +103,7 @@
 
 </script>
 
-<main class="p-8 flex flex-col gap-8 h-full items-center justify-center bg-[url('/images/dog.svg')] bg-no-repeat bg-[length:125%] bg-center">
+<main class="p-8 flex flex-col gap-8 h-full items-center justify-center bg-[url('/files/dog.svg')] bg-no-repeat bg-[length:125%] bg-center">
 
     <div class="relative">
         <a class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] z-10" target="_blank" href="https://www.wmcn.fm/?page_id=353">
@@ -111,7 +115,7 @@
         <div class="flex h-24 gap-2 items-center opacity-20">
             {#if status === 'loading'}
                 {#each Array(16) as _, i}
-                    <div class="w-2 h-full bg-current animate-ping" style="transform:scale(1)!important;animation-delay:{i/32}s"></div>
+                    <div class="w-2 h-full bg-current animate-pingNoScale" style="animation-delay:{i/32}s"></div>
                 {/each}
             {/if}
     

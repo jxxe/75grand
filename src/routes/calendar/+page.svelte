@@ -28,6 +28,7 @@
                         5: 'person-running text-green-500',
                         7: 'message text-red-500',
                         8: 'masks-theater text-purple-500',
+                        13: 'star text-yellow-500',
                         15: 'map-pin',
                         24: 'film text-pink-500'
                     }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl grid place-items-center border border-slate-200 w-[51px] aspect-square rounded-full bg-white fas"></i>

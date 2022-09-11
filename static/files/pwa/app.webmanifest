@@ -1,0 +1,17 @@
+{
+    "name": "75grand",
+    "short_name": "75grand",
+    "description": "The unofficial student portal to Macalester College",
+    "start_url": "https://75grand.vercel.app",
+    "orientation": "portrait",
+    "display": "standalone",
+    "theme_color": "#0369a1",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/files/pwa/icon.png",
+            "sizes": "48x48 72x72 96x96 144x144 168x168 192x192",
+            "type": "image/png"
+        }
+    ]
+}

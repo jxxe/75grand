@@ -21,6 +21,6 @@
     <i
         on:click|preventDefault={toggleFavorite(link.id)}
         class:!text-yellow-500={$favorites.includes(link.id)}
-        class="text-slate-300 opacity-0 transition-opacity group-hover:opacity-100 fas fa-star"
+        class="text-slate-300 lg:opacity-0 transition-opacity lg:group-hover:opacity-100 fas fa-star"
     ></i>
 </a>

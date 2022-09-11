@@ -9,6 +9,17 @@ module.exports = {
             },
             fontFamily: {
                 serif: 'Georgia, ui-serif, Cambria, "Times New Roman", Times, serif'
+            },
+            keyframes: {
+                pingNoScale: {
+                    '75%, 100%': { opacity: 0 }
+                }
+            },
+            animation: {
+                pingNoScale: 'pingNoScale 750ms cubic-bezier(0, 0, 0.2, 1) infinite;'
+            },
+            screens: {
+                standalone: { raw: '(display-mode: standalone)' }
             }
         }
     },
