@@ -29,11 +29,11 @@
 				<span class="text-slate-400">I'm failing CS123</span>
 			</a>
 
-			<div class="p-8 flex flex-col items-center justify-center border-2 border-dashed border-slate-300 rounded-lg">
+			<a href="https://drive.google.com/file/d/1tP1YV5I-AE3QhyfzOPW2p6I_CE2VflaA/view" target="_blank" class="p-8 flex flex-col items-center justify-center border-2 border-dashed hover:border-solid border-slate-300 rounded-lg">
 				<i class="text-2xl fas fa-bullhorn"></i>
-				<span class="text-lg font-semibold">Spread the Word</span>
+				<span class="text-lg font-semibold">Spread the World</span>
 				<span class="text-slate-400">Put up posters, tell your friends</span>
-			</div>
+			</a>
 		</div>
 	</section>
 	
