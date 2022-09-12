@@ -26,7 +26,7 @@
 
                     {#if updated}
                         <span class="text-slate-400">•</span>
-                        <span>{DateTime.fromISO(updated).toFormat('MMM d, yyyy')}</span>
+                        <span>Updated {DateTime.fromISO(updated).toFormat('MMM d, yyyy')}</span>
                     {/if}
                 </span>
             </div>
