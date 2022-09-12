@@ -106,4 +106,6 @@ updated: 2022-09-11
 - [UniDays](https://www.myunidays.com/US/en-US)
 - [SheerID](https://www.sheerid.com/shoppers/studentdeals/)
 
-*This list was adapted from [Husker](https://github.com/ninest/husker/blob/main/content/services/free/index.md) under the MIT license*
+---
+
+*This list is adapted from [Husker](https://github.com/ninest/husker/blob/main/content/services/free/index.md) under the MIT license*

@@ -22,11 +22,11 @@
                 {/if}
 
                 <span>
-                    <span>{DateTime.fromISO(date).toFormat('MMM d, yyyy')}</span>
+                    <span>{DateTime.fromISO(date, { zone: 'utc' }).toFormat('MMM d, yyyy')}</span>
 
                     {#if updated}
                         <span class="text-slate-400">•</span>
-                        <span>Updated {DateTime.fromISO(updated).toFormat('MMM d, yyyy')}</span>
+                        <span>Updated {DateTime.fromISO(updated, { zone: 'utc' }).toFormat('MMM d, yyyy')}</span>
                     {/if}
                 </span>
             </div>

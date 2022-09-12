@@ -15,7 +15,7 @@
                     <img class="border-b border-slate-200" src="https://images.weserv.nl/?url={encodeURIComponent(guide.meta.image)}&w=600&h=400&fit=cover" alt="">
                     <div class="py-3 px-4">
                         <h2 class="text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">{guide.meta.title}</h2>
-                        <p>{DateTime.fromISO(guide.meta.updated ?? guide.meta.date).toFormat('MMMM d, yyyy')}</p>
+                        <p>{DateTime.fromISO(guide.meta.updated ?? guide.meta.date, { zone: 'utc' }).toFormat('MMMM d, yyyy')}</p>
                     </div>
                 </a>
             </div>
