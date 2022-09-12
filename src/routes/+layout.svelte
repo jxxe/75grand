@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<!-- Cloudflare Analytics -->
-	<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon={'{"token": "95b0b57d0b294cb89538e62da2048418"}'}></script>
+	{@html `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "95b0b57d0b294cb89538e62da2048418"}'></script>`}
 
 	<!-- iOS PWA Attributes -->
 	<link rel="manifest" href="/files/pwa/app.webmanifest">
