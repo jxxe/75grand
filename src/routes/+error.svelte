@@ -16,5 +16,11 @@
         {/if}
     </h1>
 
-    <div class="hidden">{$page.error.message}</div>
+    <a
+        class="bg-sky-700 hover:bg-sky-800 transition-colors text-white px-4 py-2 rounded-lg block w-fit mt-4"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSd3-u4WhB-5s3MTJgABT_C805gb-BxBRGxzt5nMIZmQocFuKw/viewform?usp=pp_url&entry.1334788470=Error+Code:+{$page.status}%0APage:+{encodeURIComponent($page.url)}%0A%0AAnything+else?"
+    >
+        <i class="fas fa-triangle-exclamation mr-2"></i>
+        <span>Report Error</span>
+    </a>
 </main>
