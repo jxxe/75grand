@@ -119,6 +119,23 @@
         [false, 'opens at 10am', 5*day+22*hour]
     ];
 
+    const mailingServicesHours = [
+        [false, 'opens on Monday', 0],
+        [false, 'opens at 9am', 1*day],
+        [true, 'closes at 4:30pm', 1*day+9*hour],
+        [false, 'opens at 9am', 1*day+16*hour+30*minute],
+        [true, 'closes at 4:30pm', 2*day+9*hour],
+        [false, 'opens at 9am', 2*day+16*hour+30*minute],
+        [true, 'closes at 4:30pm', 3*day+9*hour],
+        [false, 'opens at 9am', 3*day+16*hour+30*minute],
+        [true, 'closes at 4:30pm', 4*day+9*hour],
+        [false, 'opens at 9am', 4*day+16*hour+30*minute],
+        [true, 'closes at 4:30pm', 5*day+9*hour],
+        [false, 'opens at 11am', 5*day+16*hour+30*minute],
+        [true, 'closes at 2pm', 6*day+11*hour],
+        [false, 'opens on Monday', 6*day+14*hour]
+    ];
+
     const simpliciteaHours = date => {
         if(date.hour >= 10 && date.hour < 21) return [true, 'closes at 9pm'];
         return [false, 'opens at 10am'];
@@ -183,6 +200,14 @@
             <span class="font-semibold whitespace-nowrap">ITS Help Desk</span>
         </div>
         <span class="text-slate-400 text-right">{evaluateSchedule(helpDeskHours, now).text}</span>
+    </div>
+
+    <div class="flex gap-4 items-center justify-between">
+        <div class="flex gap-2 items-center">
+            <div class="w-3 h-3 rounded-full {evaluateSchedule(mailingServicesHours, now).class}"></div>
+            <span class="font-semibold whitespace-nowrap">Mailroom</span>
+        </div>
+        <span class="text-slate-400 text-right">{evaluateSchedule(mailingServicesHours, now).text}</span>
     </div>
 
     <hr>

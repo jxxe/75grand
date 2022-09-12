@@ -30,6 +30,5 @@ export async function load({ setHeaders }) {
     events = events.sort((a, b) => new Date(a.start) - new Date(b.start));
     events = events.filter(event => new Date(event.end).getTime() > Date.now());
 
-    setHeaders({ 'cache-control': 'public, max-age=3600' });
     return { events: events };
 }
