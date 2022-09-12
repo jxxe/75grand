@@ -9,11 +9,10 @@
     const pages = {
         '/': 'Links',
         '/calendar': 'Calendar',
+        '/guides': 'Guides',
+        '/clubs': 'Clubs',
         '/directory': 'Directory',
-        '/special/map': 'Campus Map',
-        '/clubs': 'Student Groups',
-        '/social-media': 'Social Media',
-        '/guides': 'Guides'
+        '/social-media': 'Social Media'
     };
 </script>
 
@@ -33,9 +32,18 @@
         </div>
     
         <div class:!block={menuOpen} class="space-y-6 hidden lg:block">
-            <div class="transition-shadow focus-within:shadow-lg bg-slate-50 overflow-hidden border border-slate-200 rounded-lg flex items-center pl-4">
+            <!-- <div class="transition-shadow focus-within:shadow-lg bg-slate-50 overflow-hidden border border-slate-200 rounded-lg flex items-center pl-4">
                 <i class="text-slate-400 fas fa-search"></i>
-                <input autofocus class="placeholder:text-slate-400 bg-transparent outline-none py-3 pl-3 pr-4 w-full" placeholder="Search for links, events..." type="text">
+                <input autofocus class="placeholder:text-slate-400 bg-transparent outline-none py-3 pl-3 pr-4 w-full" placeholder="Search for links..." type="text">
+            </div> -->
+
+            <div class="hidden lg:flex p-2 bg-slate-100 rounded-lg border gap-3 items-center">
+                <img class="w-14 h-14 rounded-[25%] border" src="/files/pwa/icon.png" alt="">
+        
+                <div>
+                    <h3 class="text font-bold">Get the app</h3>
+                    <p class="text-slate-400 text-sm leading-4">Open 75grand on your phone and follow the directions</p>
+                </div>
             </div>
         
             <nav class="space-y-2">
@@ -57,12 +65,5 @@
         </div>
     </div>
 
-    <div class="hidden lg:flex p-2 bg-slate-100 rounded-lg border gap-4 items-center">
-        <img class="w-14 h-14 rounded-[25%] border" src="/files/pwa/icon.png" alt="">
-
-        <div>
-            <h3 class="text font-bold">Get the app</h3>
-            <p class="text-slate-400 text-sm">Open 75grand on your phone</p>
-        </div>
-    </div>
+    <!-- something here in the future, account info? -->
 </div>

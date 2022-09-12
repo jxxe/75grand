@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script>
-    import dateFormat from 'dateformat';
+    import { DateTime } from 'luxon';
     export let data; // {meta: {}, slug: ''}
 </script>
 
@@ -14,8 +14,8 @@
                 <a href="/guides/{guide.slug}">
                     <img class="border-b border-slate-200" src="https://images.weserv.nl/?url={encodeURIComponent(guide.meta.image)}&w=600&h=400&fit=cover" alt="">
                     <div class="py-3 px-4">
-                        <h2 class="text-lg font-semibold">{guide.meta.title}</h2>
-                        <p>{dateFormat(guide.meta.updated ?? guide.meta.date, 'mmmm d, yyyy', true)}</p>
+                        <h2 class="text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">{guide.meta.title}</h2>
+                        <p>{DateTime.fromISO(guide.meta.updated ?? guide.meta.date).toFormat('MMMM d, yyyy')}</p>
                     </div>
                 </a>
             </div>

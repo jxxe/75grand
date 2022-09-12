@@ -8,7 +8,7 @@ import ical from 'ical';
 // 15 = campus
 // 24 = films & videos
 
-export async function load(event) {
+export async function load({ setHeaders }) {
     let events = {};
 
     for(const calendarId of [4, 5, 7, 8, 15, 24, 13]) {
@@ -27,7 +27,9 @@ export async function load(event) {
     }
 
     events = Object.values(events);
-    events.sort((a, b) => new Date(a.start) - new Date(b.start));
+    events = events.sort((a, b) => new Date(a.start) - new Date(b.start));
+    events = events.filter(event => new Date(event.end).getTime() > Date.now());
 
+    setHeaders({ 'cache-control': 'public, max-age=3600' });
     return { events: events };
 }

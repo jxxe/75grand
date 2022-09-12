@@ -18,4 +18,9 @@
 	</section>
 	
 	<Links links={data.links}/>
+
+	<section class="px-8 pt-8 leading-none text-slate-400 border-t flex justify-between gap-4">
+		<p>Inspired by <a class="text-sky-700 font-semibold" href="https://husker.vercel.app/" target="_blank">Husker</a> for Northeastern University</p>
+		<p>&copy; {new Date().getFullYear()}</p>
+	</section>
 </main>
