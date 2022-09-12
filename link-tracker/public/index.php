@@ -13,8 +13,8 @@ $database->exec('
     );
 ');
 
-// Return data as CSV if csv URL parameter is present
-if($_GET['csv'] ?? false) {
+// Return data as CSV if URL parameter is valid
+if(array_key_exists('csv', $_GET) && md5($_GET['csv']) === '32c7e4b2c85e8538a92af97c563511c4') {
     $query = $database->query('SELECT * FROM visits ORDER BY timestamp');
     $rows = [];
     while($row = $query->fetchArray(SQLITE3_ASSOC)) $rows[] = $row;
