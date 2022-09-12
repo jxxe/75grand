@@ -137,7 +137,7 @@
             result = schedule(date);
         } else if(Array.isArray(schedule)) {
             const timestamp = date.toMillis();
-            const prevSunday = date.weekdayLong === 'Sunday' ? date.startOf('day') : date.minus({ weeks: 1 }).startOf('day');
+            const prevSunday = date.weekdayLong === 'Sunday' ? date.startOf('day') : date.minus({ days: date.weekday }).startOf('day');
     
             for(let i = 0; i < schedule.length; i++) {
                 const startTime = prevSunday + schedule[i][2];
@@ -150,7 +150,7 @@
             }
         }
 
-        if(result === null) return null;
+        if(result === null) result = [false, 'ERROR'];
 
         return {
             boolean: result[0],

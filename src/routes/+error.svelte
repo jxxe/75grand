@@ -1,6 +1,5 @@
 <script>
     import { page } from '$app/stores';
-    console.error($page.error.message);
 </script>
 
 <svelte:head>
@@ -16,4 +15,6 @@
             <span>Error</span>
         {/if}
     </h1>
+
+    <div class="hidden">{$page.error.message}</div>
 </main>
