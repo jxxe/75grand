@@ -6,10 +6,15 @@
 </script>
 
 <svelte:head>
+	<!-- Cloudflare Analytics -->
+	<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon={'{"token": "95b0b57d0b294cb89538e62da2048418"}'}></script>
+
+	<!-- iOS PWA Attributes -->
 	<link rel="manifest" href="/files/pwa/app.webmanifest">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> -->
 	<meta name="apple-mobile-web-app-title" content="75grand">
+	
+	<!-- iOS Splash Screens -->
 	<link rel="apple-touch-icon" href="/files/pwa/icon.png">
 	<link rel="apple-touch-startup-image" href="/files/pwa/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
 	<link rel="apple-touch-startup-image" href="/files/pwa/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
