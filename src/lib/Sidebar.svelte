@@ -23,7 +23,7 @@
                 <strike class="text-red-500 text-xl">1600grand</strike>
                 <h1 class="peer inline text-3xl text-sky-700 font-bold font-serif cursor-pointer"><a href="/">75grand</a></h1>
                 <img class="fixed w-44 right-[10vw] bottom-0 transition-transform peer-hover:duration-1000 translate-y-[100%] lg:peer-hover:translate-y-0" src="/files/scottie.png" alt="A scottie dog">
-                <p class="text-slate-500 leading-5 hidden lg:block">the unofficial student portal, by and for the students of Macalester College</p>
+                <p class="text-slate-500 leading-5 hidden lg:block">the unofficial portal to Macalester College, made by and for students</p>
             </div>
     
             <button on:click={() => menuOpen = !menuOpen} class="lg:hidden active:scale-90 transition-transform">
