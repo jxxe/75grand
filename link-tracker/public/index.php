@@ -33,10 +33,11 @@ if(array_key_exists('csv', $_GET) && md5($_GET['csv']) === '0867a5e0a417238d4afd
 
 $statement = $database->prepare('
     INSERT INTO visits (identifier, timestamp, ip_address, is_mac_ip, user_agent)
-    VALUES (?, CURRENT_TIMESTAMP, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?)
 ');
 
 $identifier = $_GET['id'] ?? 'unknown';
+$timestamp = time();
 $ip_address = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'];
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
@@ -45,9 +46,10 @@ $ip_number = ip2long($ip_address);
 $is_mac_ip = ($ip_number >= 2374795264 && $ip_number <= 2374811647) || ($ip_number >= 2374811648 && $ip_number <= 2374828031) || ($ip_number >= 2374778880 && $ip_number <= 2374795263);
 
 $statement->bindValue(1, $identifier);
-$statement->bindValue(2, $ip_address);
-$statement->bindValue(3, $is_mac_ip ? 1 : 0);
-$statement->bindValue(4, $user_agent);
+$statement->bindValue(2, $timestamp);
+$statement->bindValue(3, $ip_address);
+$statement->bindValue(4, $is_mac_ip ? 1 : 0);
+$statement->bindValue(5, $user_agent);
 
 $statement->execute();
 $database->close();
