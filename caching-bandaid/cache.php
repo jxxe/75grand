@@ -10,7 +10,7 @@ $url = $_GET['url'] ?? die('no url provided');
 
 http_response_code(401);
 $host = parse_url($url, PHP_URL_HOST);
-if(!in_array($host, ['opensheet.elk.sh', 'webapps.macalester.edu', 'macalester.edu', 'www.wmcn.fm'])) die('url is not whitelisted');
+if(!in_array($host, ['www.macalester.edu', 'opensheet.elk.sh', 'webapps.macalester.edu', 'macalester.edu', 'www.wmcn.fm'])) die('url is not whitelisted');
 
 http_response_code(200);
 if($data = apcu_fetch($url)) die($data);
