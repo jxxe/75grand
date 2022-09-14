@@ -8,11 +8,12 @@ import ical from 'ical';
 // 15 = campus
 // 24 = films & videos
 
-export async function load({ setHeaders }) {
+export async function load(event) {
     let events = {};
 
     for(const calendarId of [4, 5, 7, 8, 15, 24, 13]) {
-        const request = await fetch(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`);
+        // const request = await fetch(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`);
+        const request = await fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`)}`);
         const raw = await request.text();
 
         let allEvents = Object.values(ical.parseICS(raw)).map(event => {

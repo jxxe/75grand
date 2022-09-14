@@ -7,8 +7,8 @@
     beforeNavigate(() => menuOpen = false);
 
     const pages = {
-        'https://forms.gle/WBWJxb7ucaW7QjwU6': 'Feedback',
         '/': 'Links',
+        'https://forms.gle/WBWJxb7ucaW7QjwU6': 'Feedback',
         '/calendar': 'Calendar',
         '/guides': 'Guides',
         '/clubs': 'Clubs',

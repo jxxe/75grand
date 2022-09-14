@@ -1,7 +1,8 @@
 import { parse } from 'node-html-parser';
 
 export async function load(event) {
-    const request = await fetch('https://www.macalester.edu/directory/studentorganizations/');
+    // const request = await fetch(`https://www.macalester.edu/directory/studentorganizations/`);
+    const request = await fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://www.macalester.edu/directory/studentorganizations/')}`);
     const html = await request.text();
     const parsed = parse(html);
 
