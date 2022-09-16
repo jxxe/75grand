@@ -119,6 +119,36 @@
         [false, 'opens at 10am', 5*day+22*hour]
     ];
 
+    const hamreCenterHours = [
+        [false, 'opens on Monday', 0],
+
+        [false, 'opens at 10am', 1*day],
+        [true, 'break at 12pm', 1*day+10*hour],
+        [false, 'opens at 1pm', 1*day+12*hour],
+        [true, 'closes at 4pm', 1*day+13*hour],
+        [false, 'opens at 10am', 1*day+16*hour],
+
+        [true, 'break at 12pm', 2*day+10*hour],
+        [false, 'opens at 1pm', 2*day+12*hour],
+        [true, 'closes at 4pm', 2*day+13*hour],
+        [false, 'opens at 10am', 2*day+26*hour],
+
+        [true, 'break at 12pm', 3*day+10*hour],
+        [false, 'opens at 1pm', 3*day+12*hour],
+        [true, 'closes at 4pm', 3*day+13*hour],
+        [false, 'opens at 10am', 3*day+16*hour],
+
+        [true, 'break at 12pm', 4*day+10*hour],
+        [false, 'opens at 1pm', 4*day+12*hour],
+        [true, 'closes at 4pm', 4*day+13*hour],
+        [false, 'opens at 10am', 4*day+16*hour],
+
+        [true, 'break at 12pm', 5*day+10*hour],
+        [false, 'opens at 1pm', 5*day+12*hour],
+        [true, 'closes at 4pm', 5*day+13*hour],
+        [false, 'opens on Monday', 5*day+16*hour]
+    ];
+
     const mailingServicesHours = [
         [false, 'opens on Monday', 0],
         [false, 'opens at 9am', 1*day],
@@ -210,6 +240,14 @@
         <span class="text-slate-400 text-right">{evaluateSchedule(mailingServicesHours, now).text}</span>
     </div>
 
+    <div class="flex gap-4 items-center justify-between">
+        <div class="flex gap-2 items-center">
+            <div class="w-3 h-3 rounded-full {evaluateSchedule(hamreCenterHours, now).class}"></div>
+            <span class="font-semibold whitespace-nowrap">Hamre Center</span>
+        </div>
+        <span class="text-slate-400 text-right">{evaluateSchedule(hamreCenterHours, now).text}</span>
+    </div>
+
     <hr>
 
     <div class="flex gap-4 items-center justify-between">
@@ -226,14 +264,6 @@
             <span class="font-semibold whitespace-nowrap">Grille</span>
         </div>
         <span class="text-slate-400 text-right">{evaluateSchedule(grilleHours, now).text}</span>
-    </div>
-
-    <div class="flex gap-4 items-center justify-between">
-        <div class="flex gap-2 items-center">
-            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            <span class="font-semibold whitespace-nowrap">Nessie's</span>
-        </div>
-        <span class="text-slate-400 text-right">temporarily closed</span>
     </div>
 
     <hr>
