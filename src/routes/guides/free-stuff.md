@@ -1,6 +1,6 @@
 ---
 title: Student Freebies & Discounts
-# author: Jerome Paulos
+author: Jerome Paulos ’26
 image: https://www.macalester.edu/cec/wp-content/uploads/sites/78/2021/06/IMG_20210504_171255-scaled.jpg
 date: 2022-08-26
 updated: 2022-09-16
