@@ -3,7 +3,7 @@ title: Student Freebies & Discounts
 # author: Jerome Paulos
 image: https://www.macalester.edu/cec/wp-content/uploads/sites/78/2021/06/IMG_20210504_171255-scaled.jpg
 date: 2022-08-26
-updated: 2022-09-11
+updated: 2022-09-16
 ---
 
 ## Museums
@@ -35,7 +35,7 @@ updated: 2022-09-11
 
 ## News
 - [The New York Times](https://myaccount.nytimes.com/verification/edupass) — Free with @macalester.edu email
-- [The Star Tribune](https://macadmsys.macalester.edu/ssomanager/c/SSB?pkg=https://bit.ly/3QP6ujk) — $5/month for Macalester students
+- [The Star Tribune](https://startribune.com/macalester) — $5/month, free Buffalo Wild Wings gift card
 - [The Wall Street Journal](https://store.wsj.com/shop/us/us/wsjstudentbts23/) — $24/year with .edu email
 - [The Washington Post](https://subscribe.washingtonpost.com/checkout/?promo=o8_edu_acq) — $1/month with .edu email
 - [Business Insider](https://www.businessinsider.com/subscription/students) — $19/semester with .edu email
