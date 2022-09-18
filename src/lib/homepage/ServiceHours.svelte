@@ -17,6 +17,24 @@
     const hour = minute*60;
     const day = hour*24;
 
+    const leonardCenterHours = [
+        [false, 'opens at 10am', 0],
+        [true, 'closes at 12am', 10*hour],
+        [false, 'opens at 6:30am', 1*day],
+        [true, 'closes at 12am', 1*day+6*hour+30*minute],
+        [false, 'opens at 6:30am', 2*day],
+        [true, 'closes at 12am', 2*day+6*hour+30*minute],
+        [false, 'opens at 6:30am', 3*day],
+        [true, 'closes at 12am', 3*day+6*hour+30*minute],
+        [false, 'opens at 6:30am', 4*day],
+        [true, 'closes at 12am', 4*day+6*hour+30*minute],
+        [false, 'opens at 6:30am', 5*day],
+        [true, 'closes at 12am', 5*day+6*hour+30*minute],
+        [false, 'opens at 10am', 6*day],
+        [true, 'closes at 9pm', 6*day+10*hour],
+        [false, 'opens at 10am', 6*day+21*hour]
+    ];
+
     const libraryHours = [
         [false, 'opens at 10am', 0],
         [true, 'closes at 1am', 10*hour],
@@ -166,16 +184,6 @@
         [false, 'opens on Monday', 6*day+14*hour]
     ];
 
-    const simpliciteaHours = date => {
-        if(date.hour >= 10 && date.hour < 21) return [true, 'closes at 9pm'];
-        return [false, 'opens at 10am'];
-    };
-
-    const senchaHours = date => {
-        if(date.hour >= 11 && date.hour < 21) return [true, 'closes at 9pm'];
-        return [false, 'opens at 11am'];
-    };
-
     function evaluateSchedule(schedule, date = null) {
         date = date ?? getDate();
         let result = null;
@@ -242,6 +250,14 @@
 
     <div class="flex gap-4 items-center justify-between">
         <div class="flex gap-2 items-center">
+            <div class="w-3 h-3 rounded-full {evaluateSchedule(leonardCenterHours, now).class}"></div>
+            <span class="font-semibold whitespace-nowrap">Leonard Center</span>
+        </div>
+        <span class="text-slate-400 text-right">{evaluateSchedule(leonardCenterHours, now).text}</span>
+    </div>
+
+    <div class="flex gap-4 items-center justify-between">
+        <div class="flex gap-2 items-center">
             <div class="w-3 h-3 rounded-full {evaluateSchedule(hamreCenterHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Hamre Center</span>
         </div>
@@ -264,24 +280,6 @@
             <span class="font-semibold whitespace-nowrap">Grille</span>
         </div>
         <span class="text-slate-400 text-right">{evaluateSchedule(grilleHours, now).text}</span>
-    </div>
-
-    <hr>
-
-    <div class="flex gap-4 items-center justify-between">
-        <div class="flex gap-2 items-center">
-            <div class="w-3 h-3 rounded-full {evaluateSchedule(simpliciteaHours, now).class}"></div>
-            <span class="font-semibold whitespace-nowrap">Simplicitea</span>
-        </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(simpliciteaHours, now).text}</span>
-    </div>
-
-    <div class="flex gap-4 items-center justify-between">
-        <div class="flex gap-2 items-center">
-            <div class="w-3 h-3 rounded-full {evaluateSchedule(senchaHours, now).class}"></div>
-            <span class="font-semibold whitespace-nowrap">Sencha Tea Bar</span>
-        </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(senchaHours, now).text}</span>
     </div>
 
     <hr>
