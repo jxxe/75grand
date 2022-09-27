@@ -48,10 +48,11 @@ updated: 2022-09-16
 - [HBO Max](https://mvpd-authn-manager-us.api.hbo.com/v1/login/comcast) — Free, login with Xfinity On Campus
 - [Peacock](https://www.peacocktv.com/xfinity-link) — Free ad-supported premium, login with Xfinity On Campus
 - [YouTube Premium](http://www.youtube.com/premium/student) — $6.99/month (down from $11.99/month)
-- [Xfinity On Campus](https://xerxes-sub.xerxessecure.com/xerxes-ctrl/oauth/authorize?client_id=xocstorefront&response_type=code&partner_id=comcast-university&redirect_uri=https://xfinityoncampus.com/sat&partner_login_hint=cGFydG5lcklkPW1hY2FsZXN0ZXJj) — free Xfinity while on campus WiFi
+- [Xfinity On Campus](https://xerxes-sub.xerxessecure.com/xerxes-ctrl/oauth/authorize?client_id=xocstorefront&response_type=code&partner_id=comcast-university&redirect_uri=https://xfinityoncampus.com/sat&partner_login_hint=cGFydG5lcklkPW1hY2FsZXN0ZXJj) — Free Xfinity while on campus WiFi
 - [Spotify + Hulu + Showtime](https://www.spotify.com/us/student/) — $4.99/month for all three
 - [SoundCloud](https://checkout.soundcloud.com/student) — 50% off Go+
 - [Kanopy](https://www.kanopy.com/en/macalester/) — Free for Macalester students
+- [Swank Digital Campus](https://digitalcampus.swankmp.net/macalester355539/) — Assortment of movies, from Jaws to Get Out
 - [Pandora](https://www.pandora.com/upgrade/premium/student) — 50% off Premium
 - [Hulu](https://www.hulu.com/student) — $1.99/month
 - [Discovery+](https://get.discoveryplus.com/studentoffer/) — $2.99/month
@@ -65,7 +66,7 @@ updated: 2022-09-16
 - [Italian Pie Shoppe](https://www.italianpieshoppe.com/) — 10% discount with MacPass
 
 ## Shopping
-- [Amazon Prime](https://www.amazon.com/Amazon-Student/b?node=668781011) — 6 months free, then 50% of
+- [Amazon Prime](https://www.amazon.com/Amazon-Student/b?node=668781011) — 6 months free, then 50% off
 - [Lenovo](http://www.lenovo.com/us/en/m1studenthealth) — Up to 30% off and free shipping
 - [Groupon](https://www.groupon.com/programs/student) — Additional 25% off
 - [Apple](https://www.apple.com/us-edu/store) — Various student discounts
@@ -74,7 +75,7 @@ updated: 2022-09-16
 - [Unlimited Twin Cities Transit Pass](https://www.macalester.edu/campus-center/home/campuscenter/informationdesk/#universal-pass) — Pick up in the [Campus Center](/special/map)
 - [Nice Ride](https://niceridemn.com/pricing/nicerideforall) — Unlimited rides for $5/year with Go-Card
 - [Macalester Bike Share](https://www.macalester.edu/sustainability/transportation/) — Free bike share outside the library
-- [Amtrak](https://www.amtrak.com/student-discounts) — 15% of
+- [Amtrak](https://www.amtrak.com/student-discounts) — 15% off
 - [Dollar Flight Club](https://dollarflightclub.com/student-and-teachers-discount/) — 75% of Premium
 - [Avis Rent a Car](https://www.avis.com/en/association/A672012) — Up to 35% off
 - [Budget Car Rentals](https://www.budget.com/en/association/B079515) — Up to 25% off
