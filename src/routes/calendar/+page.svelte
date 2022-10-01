@@ -34,7 +34,7 @@
                     class:border-sky-700={selectedFilter === feature[0]}
                     class:!bg-sky-100={selectedFilter === feature[0]}
                     class:text-sky-700={selectedFilter === feature[0]}
-                    on:click={() => selectedFilter = selectedFilter === feature[0] ? '' : feature[0]}
+                    on:mousedown={() => selectedFilter = selectedFilter === feature[0] ? '' : feature[0]}
                     class="bg-white active:scale-95 cursor-pointer select-none hover:bg-gray-50 transition-[color,background-color,border-color,transform] border inline-flex mr-2 mb-3 items-center gap-3 py-2 px-4 rounded-full"
                 >
                     <i class="fas fa-{feature[1]}"></i>
