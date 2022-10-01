@@ -13,19 +13,19 @@
 
     <div class="p-8 pb-16 max-w-2xl mx-auto space-y-4">
         <div class="space-y-2">
-            <h1 class="text-3xl font-bold text-slate-700">{title}</h1>
+            <h1 class="text-3xl font-bold text-gray-700">{title}</h1>
 
             <div>
                 {#if author}
                     <span>by {author}</span>
-                    <span class="text-slate-400">•</span>
+                    <span class="text-gray-400">•</span>
                 {/if}
 
                 <span>
                     <span>{DateTime.fromISO(date, { zone: 'utc' }).toFormat('MMM d, yyyy')}</span>
 
                     {#if updated}
-                        <span class="text-slate-400">•</span>
+                        <span class="text-gray-400">•</span>
                         <span>Updated {DateTime.fromISO(updated, { zone: 'utc' }).toFormat('MMM d, yyyy')}</span>
                     {/if}
                 </span>
@@ -35,7 +35,7 @@
     
         <hr>
     
-        <article class="prose prose-sky max-w-none prose-slate text-base mx-auto">
+        <article class="prose prose-sky max-w-none prose-gray text-base mx-auto">
             <svelte:component this={content} />
         </article>
     </div>

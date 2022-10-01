@@ -10,7 +10,7 @@
     <h1 class="text-5xl">
         <span>{$page.status}</span>
         {#if $page.status === 404}
-            <span class="text-xl mt-2 text-slate-400">Page lost in Olin-Rice</span>
+            <span class="text-xl mt-2 text-gray-400">Page lost in Olin-Rice</span>
         {:else}
             <span>Error</span>
         {/if}

@@ -2,7 +2,7 @@
     export let name, phone, email, website, location;
 </script>
 
-<div class="space-y-1 bg-white px-4 py-3 rounded-lg border border-slate-200">
+<div class="space-y-1 bg-white px-4 py-3 rounded-lg border border-gray-200">
     <h3 class="font-semibold">{name}</h3>
 
     {#if phone}

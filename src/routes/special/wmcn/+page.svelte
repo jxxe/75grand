@@ -131,7 +131,7 @@
         <div class="text-center">
             <p class="uppercase text-xs text-sky-700">Current Show</p>
             <h3 class="font-bold text-lg">{data.title}</h3>
-            <p class="text-slate-500">{data.time}</p>
+            <p class="text-gray-500">{data.time}</p>
         </div>
     {/if}
 

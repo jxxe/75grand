@@ -4,7 +4,6 @@
 
 <script>
     import { DateTime } from 'luxon';
-    export let data;
 
     function formatEventDate(startTimeString, endTimeString) {
         const startDate = DateTime.fromJSDate(startTimeString, { zone: 'America/Chicago' });
@@ -17,11 +16,36 @@
         if(endDate.isValid) formattedDate += '–' + endDate.toFormat(endFormat);
         return formattedDate.replace('AM', 'am').replace('PM', 'pm');
     }
+
+    export let data;
+    let selectedFilter = '';
+
+    $: filteredEvents = data.events.filter(event => {
+        if(selectedFilter === '') return true;
+        return event.features?.length && event.features.flat().includes(selectedFilter);
+    });
 </script>
 
-<main class="p-8">
+<main class="p-8 space-y-6">
+    {#if data.uniqueFeatures.length}
+        <div class="-mb-3">
+            {#each data.uniqueFeatures as feature}
+                <div
+                    class:border-sky-700={selectedFilter === feature[0]}
+                    class:!bg-sky-100={selectedFilter === feature[0]}
+                    class:text-sky-700={selectedFilter === feature[0]}
+                    on:click={() => selectedFilter = selectedFilter === feature[0] ? '' : feature[0]}
+                    class="bg-white active:scale-95 cursor-pointer select-none hover:bg-gray-50 transition-[color,background-color,border-color,transform] border inline-flex mr-2 mb-3 items-center gap-3 py-2 px-4 rounded-full"
+                >
+                    <i class="fas fa-{feature[1]}"></i>
+                    <span>{feature[0]}</span>
+                </div>
+            {/each}
+        </div>
+    {/if}
+
     <div class="grid gap-4 grid-cols-[min-content,1fr]">
-        {#each data.events as event, index}
+        {#each filteredEvents as event, index}
             <div>
                 <i class="fa-{{
                     4: 'graduation-cap text-orange-500',
@@ -31,13 +55,13 @@
                     13: 'star text-yellow-500',
                     15: 'map-pin',
                     24: 'film text-pink-500'
-                }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl grid place-items-center border border-slate-200 w-[51px] aspect-square rounded-full bg-white fas"></i>
-                {#if index+1 < data.events.length}
-                    <div class="ml-[calc(50%-1px)] h-full w-[1.5px] bg-slate-200"></div>
+                }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl grid place-items-center border border-gray-200 w-[51px] aspect-square rounded-full bg-white fas"></i>
+                {#if index+1 < filteredEvents.length}
+                    <div class="ml-[calc(50%-1px)] h-full w-[1.5px] bg-gray-200"></div>
                 {/if}
             </div>
 
-            <a href={event.url} target="_blank" class="lg:flex lg:flex-row flex-col gap-2 w-fit p-3 rounded-lg bg-white hover:bg-slate-50 transition-colors border border-slate-200">
+            <a href={event.url} target="_blank" class="lg:flex lg:flex-row flex-col gap-2 w-fit p-3 rounded-lg bg-white hover:bg-gray-50 transition-colors border border-gray-200">
                 <p class="whitespace-nowrap">{formatEventDate(event.start, event.end)}</p>
                 <p class="font-semibold">{event.summary}</p>
             </a>

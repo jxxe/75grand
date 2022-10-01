@@ -16,5 +16,5 @@ http_response_code(200);
 if($data = apcu_fetch($url)) die($data);
 
 $data = file_get_contents($url);
-apcu_add($url, $data, 60*30);
+apcu_add($url, $data, 60*60); // one hour
 echo $data;

@@ -215,13 +215,13 @@
     }
 </script>
 
-<div class="bg-white px-4 py-3 space-y-2 rounded-lg border border-slate-200">
+<div class="bg-white px-4 py-3 space-y-2 rounded-lg border border-gray-200">
     <div class="flex gap-4 items-center justify-between">
         <div class="flex gap-2 items-center">
             <div class="w-3 h-3 rounded-full {evaluateSchedule(libraryHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Library</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(libraryHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(libraryHours, now).text}</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -229,7 +229,7 @@
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
             <span class="font-semibold whitespace-nowrap">The Link</span>
         </div>
-        <span class="text-slate-400 text-right">open 24/7</span>
+        <span class="text-gray-400 text-right">open 24/7</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -237,7 +237,7 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(helpDeskHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">ITS Help Desk</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(helpDeskHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(helpDeskHours, now).text}</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -245,7 +245,7 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(mailingServicesHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Mailroom</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(mailingServicesHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(mailingServicesHours, now).text}</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -253,7 +253,7 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(leonardCenterHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Leonard Center</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(leonardCenterHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(leonardCenterHours, now).text}</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -261,7 +261,7 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(hamreCenterHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Hamre Center</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(hamreCenterHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(hamreCenterHours, now).text}</span>
     </div>
 
     <hr>
@@ -271,7 +271,7 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(cafeMacHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Café Mac</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(cafeMacHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(cafeMacHours, now).text}</span>
     </div>
 
     <div class="flex gap-4 items-center justify-between">
@@ -279,10 +279,10 @@
             <div class="w-3 h-3 rounded-full {evaluateSchedule(grilleHours, now).class}"></div>
             <span class="font-semibold whitespace-nowrap">Grille</span>
         </div>
-        <span class="text-slate-400 text-right">{evaluateSchedule(grilleHours, now).text}</span>
+        <span class="text-gray-400 text-right">{evaluateSchedule(grilleHours, now).text}</span>
     </div>
 
     <hr>
 
-    <p class="italic text-sm text-slate-400">Holidays may affect these hours</p>
+    <p class="italic text-sm text-gray-400">Holidays may affect these hours</p>
 </div>

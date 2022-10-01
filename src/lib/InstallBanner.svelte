@@ -9,12 +9,12 @@
     }
 </script>
 
-<div class="standalone:hidden lg:hidden p-3 bg-slate-50 border-b flex gap-3 items-center text-sm">
+<div class="standalone:hidden lg:hidden p-3 bg-gray-50 border-b flex gap-3 items-center text-sm">
     <img class="w-10 h-10 rounded-[25%] border" src="/files/pwa/icon.png" alt="">
 
     <div class="w-full leading-none mt-[-4px]">
         <h3 class="font-bold text-lg">Install 75grand</h3>
-        <p class="text-slate-400">No download required</p>
+        <p class="text-gray-400">No download required</p>
     </div>
 
     <button on:click={() => instructionsOpen = true} class="uppercase bg-blue-500 text-white font-bold py-2 px-5 rounded-full">Get</button>

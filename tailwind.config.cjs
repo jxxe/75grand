@@ -5,8 +5,6 @@ module.exports = {
     content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
         extend: {
-            borderWidth: { DEFAULT: '1.5px' },
-            borderColor: { DEFAULT: colors.slate[200] },
             gridTemplateColumns: {
                 display: 'repeat(auto-fill, minmax(250px, 1fr))'
             },
@@ -23,6 +21,15 @@ module.exports = {
             },
             screens: {
                 standalone: { raw: '(display-mode: standalone)' }
+            },
+            colors: {
+                gray: colors.slate
+            },
+            borderColor: {
+                DEFAULT: colors.slate[200]
+            },
+            borderWidth: {
+                DEFAULT: '1.5px'
             }
         }
     },
