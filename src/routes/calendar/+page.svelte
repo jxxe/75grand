@@ -6,8 +6,8 @@
     import { DateTime } from 'luxon';
 
     function formatEventDate(startTimeString, endTimeString) {
-        const startDate = DateTime.fromJSDate(startTimeString, { zone: 'America/Chicago' });
-        const endDate = DateTime.fromJSDate(endTimeString, { zone: 'America/Chicago' });
+        const startDate = DateTime.fromJSDate(startTimeString);
+        const endDate = DateTime.fromJSDate(endTimeString);
 
         let startFormat = `MMM d, h${startDate.minute !== 0 ? ':mm' : ''}${startDate.toFormat('a') !== endDate.toFormat('a') ? 'a' : ''}`;
         let endFormat = `h${endDate.minute !== 0 ? ':mm' : ''}a`;
