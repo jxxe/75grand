@@ -5,9 +5,9 @@
 <script>
     import { DateTime } from 'luxon';
 
-    function formatEventDate(startTimeString, endTimeString) {
-        const startDate = DateTime.fromJSDate(startTimeString, { zone: 'America/Chicago' });
-        const endDate = DateTime.fromJSDate(endTimeString, { zone: 'America/Chicago' });
+    function formatEventDate(startDateObj, endDateObj) {
+        const startDate = DateTime.fromJSDate(startDateObj, { zone: 'America/Chicago' });
+        const endDate = DateTime.fromJSDate(endDateObj, { zone: 'America/Chicago' });
 
         let startFormat = `MMM d, h${startDate.minute !== 0 ? ':mm' : ''}${startDate.toFormat('a') !== endDate.toFormat('a') ? 'a' : ''}`;
         let endFormat = `h${endDate.minute !== 0 ? ':mm' : ''}a`;
@@ -48,13 +48,13 @@
         {#each filteredEvents as event, index}
             <div>
                 <i class="fa-{{
-                    4: 'graduation-cap text-orange-500',
-                    5: 'person-running text-green-500',
-                    7: 'message text-red-500',
-                    8: 'masks-theater text-purple-500',
-                    13: 'star text-yellow-500',
-                    15: 'map-pin',
-                    24: 'film text-pink-500'
+                    0: 'graduation-cap text-orange-500',
+                    1: 'person-running text-green-500',
+                    2: 'message text-red-500',
+                    3: 'masks-theater text-purple-500',
+                    4: 'star text-yellow-500',
+                    5: 'map-pin',
+                    6: 'user-tie text-pink-500'
                 }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl grid place-items-center border border-gray-200 w-[51px] aspect-square rounded-full bg-white fas"></i>
                 {#if index+1 < filteredEvents.length}
                     <div class="ml-[calc(50%-1px)] h-full w-[1.5px] bg-gray-200"></div>
