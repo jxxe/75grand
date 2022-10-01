@@ -16,6 +16,11 @@ export async function load(event) {
         const request = await fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent(`http://webapps.macalester.edu/eventscalendar/events/ical/?calendarId=${calendarId}`)}`);
         const raw = await request.text();
 
+        const prevTZ = process.env.TZ;
+        process.env.TZ = 'America/Chicago';
+        console.log(Object.values(ical.parseICS(raw)));
+        process.env.TZ = prevTZ;
+
         let allEvents = Object.values(ical.parseICS(raw)).map(event => {
             event.calendarId = calendarId;
 
