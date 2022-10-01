@@ -3,19 +3,18 @@ import ical from 'ical';
 export async function load() {
     let events = {};
 
-    for(const [index, calendarUrl] of [
-        'https://calendar.google.com/calendar/ical/uak49d5n6hmg87onlafliquagq621es4%40import.calendar.google.com/public/basic.ics', // clubs
-        'https://calendar.google.com/calendar/ical/184a3fl8g2kgctprchksv9ohoev4csm3%40import.calendar.google.com/public/basic.ics', // sports
-        'https://calendar.google.com/calendar/ical/rgcupookhah3fr2uq5lbemckof8upsfo%40import.calendar.google.com/public/basic.ics', // lectures
-        'https://calendar.google.com/calendar/ical/287oc73evs3aaodd897kmkfv83lh4ukb%40import.calendar.google.com/public/basic.ics', // arts
-        'https://calendar.google.com/calendar/ical/1umva68vh7qjhvpm0ua1dje051h34q9c%40import.calendar.google.com/public/basic.ics', // featured
-        'https://calendar.google.com/calendar/ical/9247mqjnbg08hthcfqe0ebmusi0k7ohf%40import.calendar.google.com/public/basic.ics', // campus
-        'https://calendar.google.com/calendar/ical/uv4vv7rnmoulifk9989ftnoooigdq4ev%40import.calendar.google.com/public/basic.ics' // carreer
-    ].entries()) {
-        const request = await fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent(calendarUrl)}`);
-        const raw = await request.text();
+    const allCalendars = await Promise.all([
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/uak49d5n6hmg87onlafliquagq621es4%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // clubs
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/184a3fl8g2kgctprchksv9ohoev4csm3%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // sports
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/rgcupookhah3fr2uq5lbemckof8upsfo%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // lectures
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/287oc73evs3aaodd897kmkfv83lh4ukb%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // arts
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/1umva68vh7qjhvpm0ua1dje051h34q9c%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // featured
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/9247mqjnbg08hthcfqe0ebmusi0k7ohf%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // campus
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/uv4vv7rnmoulifk9989ftnoooigdq4ev%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()) // carreer
+    ]);
 
-        let allEvents = Object.values(ical.parseICS(raw)).map(event => {
+    for(const [index, calendarData] of allCalendars.entries()) {
+        let allEvents = Object.values(ical.parseICS(calendarData)).map(event => {
             event.calendarId = index;
 
             if(event.description) {
@@ -42,8 +41,6 @@ export async function load() {
     events = Object.values(events);
     events = events.sort((a, b) => new Date(a.start) - new Date(b.start));
     events = events.filter(event => new Date(event.end).getTime() > Date.now());
-    
-    events.forEach(event => event.features?.length && console.log(event.features));
 
     const allFeatures = events.map(event => event.features).flat().filter(item => item !== undefined);
     const featureSet = new Set(allFeatures.map(JSON.stringify));
