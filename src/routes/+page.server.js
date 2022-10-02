@@ -12,7 +12,7 @@ export async function load(event) {
     });
 
     // Select fact based on modulus of current day
-    let fact = factData[Math.round(Date.now() / (1000*60*60*24) % factData.length)];
+    let fact = factData[Math.round(Date.now() / (1000*60*60*24)) % factData.length];
 
     return { links, fact };
 }
