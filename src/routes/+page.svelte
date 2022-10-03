@@ -28,7 +28,7 @@
 
 			<a href="https://drive.google.com/file/d/1tP1YV5I-AE3QhyfzOPW2p6I_CE2VflaA/view" target="_blank" class="p-8 flex flex-col items-center justify-center border-2 border-dashed hover:border-solid border-gray-300 rounded-lg">
 				<i class="text-2xl fas fa-bullhorn"></i>
-				<span class="text-lg font-semibold">Spread the World</span>
+				<span class="text-lg font-semibold">Spread the Word</span>
 				<span class="text-gray-400">Put up posters, tell your friends</span>
 			</a>
 		</div>
