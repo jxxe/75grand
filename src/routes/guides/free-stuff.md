@@ -34,7 +34,7 @@ updated: 2022-09-16
 - [Penumbra Theatre](https://penumbratheatre.org/discounts/) — $25 tickets with MacPass
 
 ## News
-- [The New York Times](https://myaccount.nytimes.com/verification/edupass) — Free with @macalester.edu email
+- [The New York Times](https://www.macalester.edu/library/nyt/) — Free with @macalester.edu email
 - [The Star Tribune](https://startribune.com/macalester) — $5/month, free Buffalo Wild Wings gift card
 - [The Wall Street Journal](https://store.wsj.com/shop/us/us/wsjstudentbts23/) — $24/year with .edu email
 - [The Washington Post](https://subscribe.washingtonpost.com/checkout/?promo=o8_edu_acq) — $1/month with .edu email
