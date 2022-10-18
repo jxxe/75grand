@@ -10,7 +10,9 @@ export async function load() {
         fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/287oc73evs3aaodd897kmkfv83lh4ukb%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // arts
         fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/1umva68vh7qjhvpm0ua1dje051h34q9c%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // featured
         fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/9247mqjnbg08hthcfqe0ebmusi0k7ohf%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // campus
-        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/uv4vv7rnmoulifk9989ftnoooigdq4ev%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()) // carreer
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/uv4vv7rnmoulifk9989ftnoooigdq4ev%40import.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // carreer
+        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/macalester.edu_foee38ec77nqatr9hor7id17bk%40group.calendar.google.com/public/basic.ics')}`).then(r => r.text()), // dev garden
+        // fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://calendar.google.com/calendar/ical/macalester.edu_mapq50fqbvln58l7m4mkg1ch1k%40group.calendar.google.com/public/basic.ics')}`).then(r => r.text()) // program board
     ]);
 
     for(const [index, calendarData] of allCalendars.entries()) {
@@ -21,7 +23,7 @@ export async function load() {
                 const description = event.description.toLowerCase();
 
                 event.features = [
-                    ['Maybe Free Food', 'burger', description.includes('free') && !description.includes('gluten free') && (description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco'))],
+                    ['Maybe Free Food', 'burger', (description.includes('free') || description.includes('snack')) && (description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco'))],
                     ['Home Game', 'person-running', (event.location.includes('Macalester Stadium') || event.location.includes('(Home)'))],
                     ['Vegetarian', 'egg', description.includes('vegetarian') || description.includes('vegan')],
                     ['Vegan', 'carrot', description.includes('vegan')],
@@ -35,7 +37,7 @@ export async function load() {
         allEvents.shift();
 
         // Remove duplicates by using a unique ID (the URL) as the key
-        allEvents.forEach(event => events[event.url] = event);
+        allEvents.forEach(event => events[event.url ?? Math.random()] = event);
     }
     
     events = Object.values(events);
