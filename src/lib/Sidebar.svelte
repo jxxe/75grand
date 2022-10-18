@@ -17,7 +17,7 @@
     };
 </script>
 
-<div class="lg:grid grid-rows-[1fr,max-content] gap-4 bg-white lg:max-w-[350px] sticky top-0 lg:h-screen w-full border-b lg:border-b-0 lg:border-r border-gray-200 lg:p-8 py-4 px-8">
+<div class="z-50 lg:grid grid-rows-[1fr,max-content] gap-4 bg-white lg:max-w-[350px] sticky top-0 lg:h-screen w-full border-b lg:border-b-0 lg:border-r border-gray-200 lg:p-8 py-4 px-8">
     <div class="space-y-6">
         <div class="flex lg:block justify-between items-center">
             <div>
