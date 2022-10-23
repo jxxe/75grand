@@ -11,7 +11,7 @@
 	export let data;
 </script>
 
-<main class="space-y-8 py-8">
+<main class="py-8 space-y-8">
 	<Favorites links={data.links}/>
 
 	<section class="px-8 grid gap-4 grid-cols-display">

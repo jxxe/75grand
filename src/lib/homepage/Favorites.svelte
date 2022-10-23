@@ -6,7 +6,7 @@
 </script>
 
 {#if $favorites.length > 0}
-    <section class="p-8 mt-[-2rem] bg-amber-50 border-b">
+    <section class="p-8 -mt-8 bg-amber-50 border-b">
         <h2 class="text-lg font-bold mb-4">Favorites</h2>
 
         <div class="grid grid-cols-display gap-4">

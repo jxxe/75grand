@@ -17,7 +17,7 @@
     };
 </script>
 
-<div class="z-50 lg:grid grid-rows-[1fr,max-content] gap-4 bg-white lg:max-w-[350px] sticky top-0 lg:h-screen w-full border-b lg:border-b-0 lg:border-r border-gray-200 lg:p-8 py-4 px-8">
+<div class="z-40 lg:grid grid-rows-[1fr,max-content] gap-4 bg-white lg:max-w-[350px] sticky top-0 lg:h-screen w-full border-b lg:border-b-0 lg:border-r border-gray-200 lg:p-8 py-4 px-8">
     <div class="space-y-6">
         <div class="flex lg:block justify-between items-center">
             <div>
@@ -66,5 +66,7 @@
         </div>
     </div>
 
-    <!-- something here in the future, account info? -->
+    <div class="hidden lg:block">
+        <p class="text-gray-400 text-sm">Coded & Curated by <a class="text-sky-700 font-bold" href="https://jero.zone">Jerome Paulos</a></p>
+    </div>
 </div>

@@ -2,7 +2,7 @@
     import { favorites } from '../stores.js';
     export let link;
 
-    const toggleFavorite = linkId => {
+    function toggleFavorite(linkId) {
         if($favorites.includes(linkId)) {
             favorites.update(values => {
                 const index = values.indexOf(linkId);
@@ -12,7 +12,7 @@
         } else {
             favorites.update(v => [...v, linkId]);
         }
-    };
+    }
 </script>
 
 <a target={link.url.startsWith('/') ? null : '_blank'} class="group bg-white hover:bg-gray-50 transition-colors px-4 py-3 rounded-lg border border-gray-200 flex gap-3 items-center" href={link.url}>

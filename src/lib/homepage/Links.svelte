@@ -1,6 +1,6 @@
 <script>
-	import Link from '$lib/homepage/Link.svelte';
-	export let links;
+    import Link from '$lib/homepage/Link.svelte';
+    export let links;
 </script>
 
 {#each Object.entries(links) as [category, links]}
