@@ -23,7 +23,7 @@ export async function load() {
                 const description = event.description.toLowerCase();
 
                 event.features = [
-                    ['Maybe Free Food', 'burger', (description.includes('free') || description.includes('snack')) && (description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco'))],
+                    ['Possibly-Free Food', 'burger', description.includes('snack') || description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco')],
                     ['Home Game', 'person-running', (event.location.includes('Macalester Stadium') || event.location.includes('(Home)'))],
                     ['Vegetarian', 'egg', description.includes('vegetarian') || description.includes('vegan')],
                     ['Vegan', 'carrot', description.includes('vegan')],
