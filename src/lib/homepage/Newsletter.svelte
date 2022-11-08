@@ -6,13 +6,10 @@
 
     <p class="leading-tight text-gray-500">A sporadic email about free<br class="sm:hidden"> food, swag, and more on campus</p>
 
-    <form target="_blank" class="flex items-center w-full rounded-lg border overflow-hidden" action="https://app.us21.list-manage.com/subscribe/post?u=d47e526a51c281ea13ce13ff4&id=f699b0c2f7" method="POST">
-        <input class="w-full pl-3 py-2 outline-none" spellcheck="false" autocapitalize="false" required type="email" name="EMAIL" placeholder="president@macalester.edu">
-
-        <button class="whitespace-nowrap px-3 py-2 text-sky-700">
-            <i class="fas fa-arrow-right"></i>
-        </button>
-    </form>
+    <a href="https://75grand.eo.page/subscribe" class="flex items-center w-full justify-between rounded-lg border">
+        <p class="pl-3 py-2 text-gray-400 cursor-text">president@macalester.edu</p>
+        <i class="fas fa-arrow-right px-3 py-2 text-sky-700"></i>
+    </a>
 
     <p class="italic text-gray-400 text-sm px-4">
         <span>Are you hosting an event for Mac students with freebies that you would like included?</span>
