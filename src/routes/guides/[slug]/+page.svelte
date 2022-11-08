@@ -9,7 +9,7 @@
 </svelte:head>
 
 <main class="bg-white">
-    <img class="w-full border-b" src="https://wsrv.nl/?url={encodeURIComponent(image)}&w=1200&h=600&fit=cover" alt="">
+    <img class="w-full border-b" src="https://images.weserv.nl/?url={encodeURIComponent(image)}&w=1200&h=600&fit=cover" alt="">
 
     <div class="p-8 pb-16 max-w-2xl mx-auto space-y-4">
         <div class="space-y-2">
