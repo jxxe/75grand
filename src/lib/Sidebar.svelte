@@ -8,12 +8,12 @@
 
     const pages = {
         '/': 'Links',
-        'https://forms.gle/WBWJxb7ucaW7QjwU6': 'Feedback',
         '/calendar': 'Calendar',
         '/guides': 'Guides',
         '/clubs': 'Clubs',
         '/directory': 'Directory',
-        '/social-media': 'Social Media'
+        '/social-media': 'Social Media',
+        'https://docs.google.com/forms/d/e/1FAIpQLSd3-u4WhB-5s3MTJgABT_C805gb-BxBRGxzt5nMIZmQocFuKw/viewform': 'Feedback'
     };
 </script>
 

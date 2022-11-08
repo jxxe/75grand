@@ -7,6 +7,7 @@
 	import Links from '$lib/homepage/Links.svelte';
 	import ServiceHours from '$lib/homepage/ServiceHours.svelte';
     import DidYouKnow from '$lib/homepage/DidYouKnow.svelte';
+    import Newsletter from '$lib/homepage/Newsletter.svelte';
 
 	export let data;
 </script>
@@ -16,10 +17,12 @@
 
 	<section class="px-8 grid gap-4 grid-cols-display">
 		<ServiceHours/>
-
+		
 		<DidYouKnow fact={data.fact}/>
 
-		<div class="grid gap-4 grid-rows-2">
+		<Newsletter/>
+
+		<!-- <div class="grid gap-4 grid-rows-2">
 			<a href="https://devgarden.macalester.edu/projects/75" target="_blank" class="p-8 flex flex-col items-center justify-center border-2 border-dashed hover:border-solid border-gray-300 rounded-lg">
 				<i class="text-2xl fas fa-code"></i>
 				<span class="text-lg font-semibold">Contribute Code</span>
@@ -31,7 +34,7 @@
 				<span class="text-lg font-semibold">Spread the Word</span>
 				<span class="text-gray-400">Put up posters, tell your friends</span>
 			</a>
-		</div>
+		</div> -->
 	</section>
 	
 	<Links links={data.links}/>
