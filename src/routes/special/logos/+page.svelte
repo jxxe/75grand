@@ -14,8 +14,8 @@
         <div>
             <p class="text-gray-400 leading-snug">An archive of department, club, and college logos found around campus and online</p>
             <p class="text-gray-400 leading-snug group">
-                <span>Please <a class="text-sky-700 hover:underline" href="mailto:jpaulos@macalester.edu">contact me</a> if you have any additions or higher-resolution copies</span>
-                <span class="text-sm hidden group-hover:inline italic">I have a soft spot for variations of the tartan crest :)</span>
+                Please <a class="text-sky-700 hover:underline peer" href="mailto:jpaulos@macalester.edu">contact me</a> if you have any additions or higher-resolution copies
+                <span class="text-sm hidden peer-hover:inline italic">I have a soft spot for variations of the tartan crest :)</span>
             </p>
         </div>
     </div>
