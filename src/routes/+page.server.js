@@ -1,8 +1,10 @@
+import { getCacheUrl } from '$lib/helpers.js';
+
 export async function load(event) {
     // Fetch both endpoints in parallel
     const [linkData, factData] = await Promise.all([
-        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://opensheet.elk.sh/1gv_sQRICWTmUycCE8PUe0RyVRUNZTHnGi7MSfrnJHP8/Links')}`).then(r => r.json()),
-        fetch(`https://75.jero.zone/cache.php?url=${encodeURIComponent('https://opensheet.elk.sh/1gv_sQRICWTmUycCE8PUe0RyVRUNZTHnGi7MSfrnJHP8/Facts')}`).then(r => r.json())
+        fetch(getCacheUrl('https://opensheet.elk.sh/1gv_sQRICWTmUycCE8PUe0RyVRUNZTHnGi7MSfrnJHP8/Links')).then(r => r.json()),
+        fetch(getCacheUrl('https://opensheet.elk.sh/1gv_sQRICWTmUycCE8PUe0RyVRUNZTHnGi7MSfrnJHP8/Facts')).then(r => r.json())
     ]);
 
     let links = {};
