@@ -9,5 +9,5 @@
         <p class="hidden sm:block absolute right-4 uppercase text-[0.65rem] opacity-75" style="writing-mode:vertical-rl">{fact.image_credit}</p>
     </div>
 
-    <img class="absolute top-0 left-0 w-full h-full object-cover opacity-75" src="https://images.weserv.nl?url={encodeURIComponent(fact.image)}&w=400&h=400&fit=cover&we&trim&output=webp" alt="">
+    <img class="absolute top-0 left-0 w-full h-full object-cover opacity-75" src="https://wsrv.nl?url={encodeURIComponent(fact.image)}&w=400&h=400&fit=cover&we&trim&output=webp" alt="">
 </a>
