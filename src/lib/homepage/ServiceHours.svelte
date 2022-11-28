@@ -29,8 +29,8 @@
         [false, 'opens at 6:30am', 4*day],
         [true, 'closes at 12am', 4*day+6*hour+30*minute],
         [false, 'opens at 6:30am', 5*day],
-        [true, 'closes at 12am', 5*day+6*hour+30*minute],
-        [false, 'opens at 10am', 6*day],
+        [true, 'closes at 9pm', 5*day+6*hour+30*minute],
+        [false, 'opens at 10am', 5*day+21*hour],
         [true, 'closes at 9pm', 6*day+10*hour],
         [false, 'opens at 10am', 6*day+21*hour]
     ];
