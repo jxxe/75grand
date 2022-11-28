@@ -17,6 +17,8 @@
     const hour = minute*60;
     const day = hour*24;
 
+    // [isOpen, message, displayStartingAtMsFromBase]
+
     const leonardCenterHours = [
         [false, 'opens at 10am', 0],
         [true, 'closes at 12am', 10*hour],
@@ -121,20 +123,27 @@
 
     const grilleHours = [
         [false, 'opens at 10am', 0],
+
         [true, 'closes at 10pm', 10*hour],
         [false, 'opens at 7:30am', 22*hour],
+
         [true, 'closes at 10pm', 1*day+7*hour+30*minute],
         [false, 'opens at 7:30am', 1*day+22*hour],
+
         [true, 'closes at 10pm', 2*day+7*hour+30*minute],
         [false, 'opens at 7:30am', 2*day+22*hour],
+
         [true, 'closes at 10pm', 3*day+7*hour+30*minute],
         [false, 'opens at 7:30am', 3*day+22*hour],
+
         [true, 'closes at 10pm', 4*day+7*hour+30*minute],
         [false, 'opens at 7:30am', 4*day+22*hour],
+
         [true, 'closes at 10pm', 5*day+7*hour+30*minute],
         [false, 'opens at 10am', 5*day+22*hour],
+
         [true, 'closes at 10pm', 6*day+10*hour],
-        [false, 'opens at 10am', 5*day+22*hour]
+        [false, 'opens at 10am', 6*day+22*hour]
     ];
 
     const hamreCenterHours = [
@@ -149,7 +158,7 @@
         [true, 'break at 12pm', 2*day+10*hour],
         [false, 'opens at 1pm', 2*day+12*hour],
         [true, 'closes at 4pm', 2*day+13*hour],
-        [false, 'opens at 10am', 2*day+26*hour],
+        [false, 'opens at 10am', 2*day+16*hour],
 
         [true, 'break at 12pm', 3*day+10*hour],
         [false, 'opens at 1pm', 3*day+12*hour],
