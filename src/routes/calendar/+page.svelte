@@ -47,17 +47,19 @@
     <div class="grid gap-4 grid-cols-[min-content,1fr]">
         {#each filteredEvents as event, index}
             <div>
-                <i class="fa-{{
-                    0: 'graduation-cap text-orange-500',
-                    1: 'person-running text-green-500',
-                    2: 'message text-red-500',
-                    3: 'masks-theater text-purple-500',
-                    4: 'building-columns text-sky-700',
-                    5: 'map-pin',
-                    6: 'user-tie text-pink-500',
-                    7: 'code text-cyan-500',
-                    8: 'sun-bright text-yellow-500'
-                }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl grid place-items-center border border-gray-200 w-[51px] aspect-square rounded-full bg-white fas"></i>
+                <div class="grid place-items-center border border-gray-200 w-[51px] aspect-square rounded-full bg-white ">     
+                    <i class="fa-{{
+                        0: 'graduation-cap text-orange-500',
+                        1: 'person-running text-green-500',
+                        2: 'message text-red-500',
+                        3: 'masks-theater text-purple-500',
+                        4: 'building-columns text-sky-700',
+                        5: 'map-pin',
+                        6: 'user-tie text-pink-500',
+                        7: 'code text-cyan-500',
+                        8: 'sun-bright text-yellow-500'
+                    }[event.calendarId] ?? 'calendar-day text-sky-700'} text-xl fas"></i>
+                </div>
                 {#if index+1 < filteredEvents.length}
                     <div class="ml-[calc(50%-1px)] h-full w-[1.5px] bg-gray-200"></div>
                 {/if}
