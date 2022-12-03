@@ -25,7 +25,7 @@ export async function load() {
 
                 event.features = [
                     ['Possibly-Free Food', 'pot-food', description.includes('snack') || description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco')],
-                    ['Home Game', 'person-running', event.calendarId === 1 && (event.location.includes('Macalester Stadium') || event.location.includes('(Home)') || event.location.includes('Leonard'))],
+                    ['Home Game', 'person-running', event.calendarId === 1 && event.summary.includes(' vs ')],
                     ['Vegetarian', 'egg', description.includes('vegetarian') || description.includes('vegan')],
                     ['Vegan', 'carrot', description.includes('vegan')],
                     ['Gluten Free', 'wheat-awn-circle-exclamation', description.includes('gluten free') || description.includes('gluten-free')]
