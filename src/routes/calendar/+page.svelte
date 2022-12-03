@@ -34,7 +34,7 @@
                     class:border-sky-700={selectedFilter === feature[0]}
                     class:!bg-sky-100={selectedFilter === feature[0]}
                     class:text-sky-700={selectedFilter === feature[0]}
-                    on:mousedown={() => selectedFilter = selectedFilter === feature[0] ? '' : feature[0]}
+                    on:click={() => selectedFilter = selectedFilter === feature[0] ? '' : feature[0]}
                     class="bg-white active:scale-95 cursor-pointer select-none hover:bg-gray-50 transition-[color,background-color,border-color,transform] border inline-flex mr-2 mb-3 items-center gap-3 py-2 px-4 rounded-full"
                 >
                     <i class="fas fa-{feature[1]}"></i>
@@ -52,7 +52,7 @@
                     1: 'person-running text-green-500',
                     2: 'message text-red-500',
                     3: 'masks-theater text-purple-500',
-                    4: 'star text-indigo-500',
+                    4: 'building-columns text-sky-700',
                     5: 'map-pin',
                     6: 'user-tie text-pink-500',
                     7: 'code text-cyan-500',
@@ -63,7 +63,7 @@
                 {/if}
             </div>
 
-            <a href={event.url} target="_blank" class="lg:flex lg:flex-row flex-col gap-2 w-fit p-3 rounded-lg bg-white hover:bg-gray-50 transition-colors border border-gray-200">
+            <a href={event.url} target="_blank" class:hover:bg-gray-50={event.url} class="lg:flex lg:flex-row flex-col gap-2 w-fit p-3 rounded-lg bg-white transition-colors border border-gray-200">
                 <p class="whitespace-nowrap">{formatEventDate(event.start, event.end)}</p>
                 <p class="font-semibold">{event.summary}</p>
             </a>

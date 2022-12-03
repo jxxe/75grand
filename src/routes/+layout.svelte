@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-	<!-- Cloudflare Analytics -->
-	{@html `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "95b0b57d0b294cb89538e62da2048418"}'></script>`}
+	<!-- FontAwesome Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css">
 
 	<!-- iOS PWA Attributes -->
 	<link rel="manifest" href="/files/pwa/app.webmanifest">
