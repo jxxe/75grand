@@ -39,8 +39,9 @@
 	
 	<Links links={data.links}/>
 
-	<section class="px-8 pt-8 text-gray-400 border-t lg:flex justify-between gap-4">
+	<section class="px-8 pt-8 text-gray-400 border-t hidden lg:flex items-center justify-between gap-4">
 		<p>Inspired by <a class="text-sky-700 font-semibold" href="https://husker.vercel.app/" target="_blank">Husker</a> for Northeastern University</p>
+		<img class="h-6 [image-rendering:pixelated]" src="/files/badge.png" alt="">
 		<p>Not affiliated with Macalester College</p>
 	</section>
 </main>
