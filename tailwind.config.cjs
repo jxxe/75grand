@@ -12,7 +12,8 @@ module.exports = {
                 display: 'repeat(auto-fill, minmax(250px, 1fr))'
             },
             fontFamily: {
-                serif: 'Georgia, ui-serif, Cambria, "Times New Roman", Times, serif'
+                serif: 'Georgia, ui-serif, Cambria, "Times New Roman", Times, serif',
+                sans: 'ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", sans-serif'
             },
             keyframes: {
                 pingNoScale: {

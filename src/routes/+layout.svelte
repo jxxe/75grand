@@ -3,11 +3,13 @@
 	import LoadingBar from '$lib/LoadingBar.svelte';
 	import Sidebar from '$lib/Sidebar.svelte';
 	import InstallBanner from '$lib/InstallBanner.svelte';
+    import FeedbackBubble from '$lib/FeedbackBubble.svelte';
 </script>
 
 <svelte:head>
 	<!-- FontAwesome Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter&display=swap">
 
 	<!-- iOS PWA Attributes -->
 	<link rel="manifest" href="/files/pwa/app.webmanifest">
@@ -30,6 +32,7 @@
 
 <LoadingBar/>
 <InstallBanner/>
+<FeedbackBubble/>
 
 <div class="grid lg:grid-cols-[350px,1fr] grid-rows-[max-content,1fr] lg:grid-rows-none min-h-screen">
 	<Sidebar/>
