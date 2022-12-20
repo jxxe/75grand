@@ -2,7 +2,7 @@
     "name": "75grand",
     "short_name": "75grand",
     "description": "The unofficial student portal to Macalester College",
-    "start_url": "https://75grand.vercel.app",
+    "start_url": "https://www.75grand.net",
     "orientation": "portrait",
     "display": "standalone",
     "theme_color": "#0369a1",

@@ -54,4 +54,4 @@ $statement->bindValue(5, $user_agent);
 $statement->execute();
 $database->close();
 
-header('Location: https://75grand.vercel.app');
+header('Location: https://75grand.net');
