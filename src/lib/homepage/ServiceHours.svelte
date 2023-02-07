@@ -152,27 +152,27 @@
         [false, 'opens at 10am', 1*day],
         [true, 'break at 12pm', 1*day+10*hour],
         [false, 'opens at 1pm', 1*day+12*hour],
-        [true, 'closes at 4pm', 1*day+13*hour],
+        [true, 'closes at 5pm', 1*day+14*hour],
         [false, 'opens at 10am', 1*day+16*hour],
 
         [true, 'break at 12pm', 2*day+10*hour],
         [false, 'opens at 1pm', 2*day+12*hour],
-        [true, 'closes at 4pm', 2*day+13*hour],
+        [true, 'closes at 5pm', 2*day+14*hour],
         [false, 'opens at 10am', 2*day+16*hour],
 
         [true, 'break at 12pm', 3*day+10*hour],
         [false, 'opens at 1pm', 3*day+12*hour],
-        [true, 'closes at 4pm', 3*day+13*hour],
+        [true, 'closes at 5pm', 3*day+14*hour],
         [false, 'opens at 10am', 3*day+16*hour],
 
         [true, 'break at 12pm', 4*day+10*hour],
         [false, 'opens at 1pm', 4*day+12*hour],
-        [true, 'closes at 4pm', 4*day+13*hour],
+        [true, 'closes at 5pm', 4*day+14*hour],
         [false, 'opens at 10am', 4*day+16*hour],
 
         [true, 'break at 12pm', 5*day+10*hour],
         [false, 'opens at 1pm', 5*day+12*hour],
-        [true, 'closes at 4pm', 5*day+13*hour],
+        [true, 'closes at 5pm', 5*day+14*hour],
         [false, 'opens on Monday', 5*day+16*hour]
     ];
 
