@@ -6,7 +6,8 @@ export async function load() {
 
     const allCalendars = await Promise.all([
         fetch(getCacheUrl('https://calendar.google.com/calendar/ical/uak49d5n6hmg87onlafliquagq621es4%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // clubs
-        fetch(getCacheUrl('https://calendar.google.com/calendar/ical/184a3fl8g2kgctprchksv9ohoev4csm3%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // sports
+        // fetch(getCacheUrl('https://calendar.google.com/calendar/ical/184a3fl8g2kgctprchksv9ohoev4csm3%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // sports
+        fetch(getCacheUrl('https://calendar.google.com/calendar/ical/6leerv47ecvi8psddibiu0dqt3km72rt%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // athletics.macalester.edu
         fetch(getCacheUrl('https://calendar.google.com/calendar/ical/rgcupookhah3fr2uq5lbemckof8upsfo%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // lectures
         fetch(getCacheUrl('https://calendar.google.com/calendar/ical/287oc73evs3aaodd897kmkfv83lh4ukb%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // arts
         fetch(getCacheUrl('https://calendar.google.com/calendar/ical/1umva68vh7qjhvpm0ua1dje051h34q9c%40import.calendar.google.com/public/basic.ics')).then(r => r.text()), // featured
@@ -25,7 +26,7 @@ export async function load() {
 
                 event.features = [
                     ['Possibly-Free Food', 'pot-food', description.includes('snack') || description.includes('breakfast') || description.includes('lunch') || description.includes('dinner') || description.includes('food') || description.includes('taco')],
-                    ['Home Game', 'person-running', event.calendarId === 1 && event.summary.includes(' vs ')],
+                    ['Home Game', 'person-running', event.calendarId === 1 && event.location.includes('(Home)')],
                     ['Vegetarian', 'egg', description.includes('vegetarian') || description.includes('vegan')],
                     ['Vegan', 'carrot', description.includes('vegan')],
                     ['Gluten Free', 'wheat-awn-circle-exclamation', description.includes('gluten free') || description.includes('gluten-free')]
