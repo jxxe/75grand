@@ -10,8 +10,8 @@
         '/': 'Links',
         '/calendar': 'Calendar',
         '/guides': 'Guides',
-        '/clubs': 'Clubs',
-        '/directory': 'Directory',
+        // '/clubs': 'Clubs',
+        // '/directory': 'Directory',
         '/social-media': 'Social Media'
     };
 </script>
@@ -23,7 +23,8 @@
                 <strike class="text-red-500 text-xl">1600grand</strike>
                 <h1 class="peer inline text-3xl text-sky-700 font-bold font-serif cursor-pointer"><a href="/">75grand</a></h1>
                 <img class="fixed w-44 right-[10vw] bottom-0 transition-transform peer-hover:duration-1000 translate-y-[100%] lg:peer-hover:translate-y-0" src="/files/scottie.png" alt="A scottie dog">
-                <p class="text-gray-500 leading-5 hidden lg:block">your portal to Macalester College</p>
+                <!-- <p class="text-gray-500 leading-5 hidden lg:block truncate">your portal to Macalester College</p> -->
+                <p class="text-gray-500 leading-5 hidden lg:block truncate">your unofficial portal to Macalester</p>
             </div>
     
             <button on:click={() => menuOpen = !menuOpen} class="lg:hidden active:scale-90 transition-transform">
